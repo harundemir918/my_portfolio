@@ -30,6 +30,7 @@ List<ContactModel> contactList = [
 const Color kPrimaryColor = Colors.orange;
 const Color kWhiteColor = Colors.white;
 const Color kBlackColor = Colors.black;
+const Color kShadowColor = Colors.black12;
 
 const double appMinWidth = 300;
 const double appMaxWidth = 1200;

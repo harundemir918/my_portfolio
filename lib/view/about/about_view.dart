@@ -5,21 +5,39 @@ Date: 20.12.2022
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:responsive_framework/responsive_framework.dart';
+import 'package:responsive_framework/responsive_framework.dart'
+    deferred as responsive_framework;
 
 import '../../core/constants/constants.dart';
 import '../../core/utils/utils.dart';
+import '../widgets/custom_circular_loading_indicator.dart';
 import '../widgets/portfolio_base_card.dart';
 
-class AboutView extends StatelessWidget {
+class AboutView extends StatefulWidget {
   const AboutView({Key? key}) : super(key: key);
 
   @override
+  State<AboutView> createState() => _AboutViewState();
+}
+
+class _AboutViewState extends State<AboutView> {
+  @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: PortfolioBaseCard(
-        cardBody: _aboutCardBody(context),
-      ),
+    return FutureBuilder(
+      future: Future.wait([
+        responsive_framework.loadLibrary(),
+      ]),
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.done) {
+          return SingleChildScrollView(
+            child: PortfolioBaseCard(
+              cardBody: _aboutCardBody(context),
+            ),
+          );
+        } else {
+          return const CustomCircularProgressIndicator();
+        }
+      },
     );
   }
 
@@ -44,14 +62,16 @@ class AboutView extends StatelessWidget {
           top: Radius.circular(kDefaultPadding),
         ),
       ),
-      child: ResponsiveRowColumn(
+      child: responsive_framework.ResponsiveRowColumn(
         rowMainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        layout: ResponsiveWrapper.of(context).isSmallerThan(TABLET)
-            ? ResponsiveRowColumnType.COLUMN
-            : ResponsiveRowColumnType.ROW,
+        layout: responsive_framework.ResponsiveWrapper.of(context)
+                .isSmallerThan(responsive_framework.TABLET)
+            ? responsive_framework.ResponsiveRowColumnType.COLUMN
+            : responsive_framework.ResponsiveRowColumnType.ROW,
         children: [
-          ResponsiveRowColumnItem(child: _aboutCardImage(context)),
-          ResponsiveRowColumnItem(
+          responsive_framework.ResponsiveRowColumnItem(
+              child: _aboutCardImage(context)),
+          responsive_framework.ResponsiveRowColumnItem(
             child: Column(
               children: [
                 _aboutCardTitle(context),
@@ -71,7 +91,10 @@ class AboutView extends StatelessWidget {
       borderRadius: BorderRadius.circular(kDefaultPadding),
       child: Image.asset(
         "assets/images/profile.png",
-        width: ResponsiveWrapper.of(context).isSmallerThan(TABLET) ? 200 : 270,
+        width: responsive_framework.ResponsiveWrapper.of(context)
+                .isSmallerThan(responsive_framework.TABLET)
+            ? 200
+            : 270,
         fit: BoxFit.fitWidth,
       ),
     );
@@ -144,24 +167,25 @@ class AboutView extends StatelessWidget {
           bottom: Radius.circular(kDefaultPadding),
         ),
       ),
-      child: ResponsiveRowColumn(
+      child: responsive_framework.ResponsiveRowColumn(
         rowMainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        layout: ResponsiveWrapper.of(context).isSmallerThan(TABLET)
-            ? ResponsiveRowColumnType.COLUMN
-            : ResponsiveRowColumnType.ROW,
+        layout: responsive_framework.ResponsiveWrapper.of(context)
+                .isSmallerThan(responsive_framework.TABLET)
+            ? responsive_framework.ResponsiveRowColumnType.COLUMN
+            : responsive_framework.ResponsiveRowColumnType.ROW,
         columnMainAxisSize: MainAxisSize.min,
         children: [
-          ResponsiveRowColumnItem(
+          responsive_framework.ResponsiveRowColumnItem(
             rowFlex: 4,
             columnFlex: 1,
             child: _aboutCardInfoTop(context),
           ),
-          ResponsiveRowColumnItem(
+          responsive_framework.ResponsiveRowColumnItem(
             rowFlex: 1,
             columnFlex: 1,
-            child: SizedBox.shrink(),
+            child: const SizedBox.shrink(),
           ),
-          ResponsiveRowColumnItem(
+          responsive_framework.ResponsiveRowColumnItem(
             rowFlex: 4,
             columnFlex: 1,
             child: _aboutCardInfoBottom(context),
@@ -239,7 +263,10 @@ class AboutView extends StatelessWidget {
             ),
           ),
           Expanded(
-              flex: ResponsiveWrapper.of(context).isSmallerThan(TABLET) ? 2 : 3,
+              flex: responsive_framework.ResponsiveWrapper.of(context)
+                      .isSmallerThan(responsive_framework.TABLET)
+                  ? 2
+                  : 3,
               child: Text(description)),
         ],
       ),

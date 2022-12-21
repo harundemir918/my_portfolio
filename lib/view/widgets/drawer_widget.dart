@@ -4,9 +4,9 @@ Date: 20.12.2022
 */
 
 import 'package:flutter/material.dart';
-import 'package:my_portfolio/core/data/page_list.dart';
 
 import '../../core/constants/constants.dart';
+import '../../core/data/page_list.dart';
 
 class DrawerWidget extends StatelessWidget {
   final int pageIndex;
