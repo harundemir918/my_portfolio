@@ -4,10 +4,14 @@ Date: 20.12.2022
 */
 
 import 'package:flutter/material.dart';
-import 'package:my_portfolio/core/constants/constants.dart';
+import 'package:my_portfolio/core/data/page_list.dart';
+
+import '../../core/constants/constants.dart';
 
 class DrawerWidget extends StatelessWidget {
-  const DrawerWidget({super.key});
+  final int pageIndex;
+
+  const DrawerWidget({super.key, required this.pageIndex});
 
   @override
   Widget build(BuildContext context) {
@@ -16,23 +20,36 @@ class DrawerWidget extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(kDefaultPadding * 2),
         child: Column(
-          children: [
-            _drawerItem("About"),
-            _drawerItem("Resume"),
-            _drawerItem("Portfolio"),
-          ],
+          children: pageList
+              .map(
+                (item) => _appBarActionsItem(
+                  context,
+                  index: item.index,
+                  title: item.title,
+                ),
+              )
+              .toList(),
         ),
       ),
     );
   }
 
-  Padding _drawerItem(String title) {
+  Widget _appBarActionsItem(
+    BuildContext context, {
+    required int index,
+    required String title,
+  }) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: kDefaultPadding * 2),
-      child: Text(
-        title,
-        style: const TextStyle(
-          color: kWhiteColor,
+      padding: const EdgeInsets.symmetric(vertical: kDefaultPadding),
+      child: TextButton(
+        onPressed: () {},
+        child: Text(
+          title,
+          style: Theme.of(context).textTheme.bodyText1?.copyWith(
+                color: kWhiteColor,
+                fontWeight:
+                    pageIndex == index ? FontWeight.bold : FontWeight.w400,
+              ),
         ),
       ),
     );

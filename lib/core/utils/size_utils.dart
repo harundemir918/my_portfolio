@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:my_portfolio/core/constants/constants.dart';
 
 class SizeUtils {
   static double getWidth(BuildContext context) =>
@@ -13,13 +12,4 @@ class SizeUtils {
 
   static double getDynamicHeight(BuildContext context, double value) =>
       MediaQuery.of(context).size.height * value;
-
-  static bool isMobile(BuildContext context) =>
-      getWidth(context) < mobileMaxWidth;
-
-  static bool isTablet(BuildContext context) =>
-      getWidth(context) >= mobileMaxWidth && getWidth(context) < tabletMaxWidth;
-
-  static bool isDesktop(BuildContext context) =>
-      getWidth(context) >= tabletMaxWidth;
 }

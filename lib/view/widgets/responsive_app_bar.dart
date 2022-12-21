@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:responsive_framework/responsive_framework.dart';
 
 import '../../core/constants/constants.dart';
-import '../../core/utils/size_utils.dart';
+import '../../core/data/page_list.dart';
 
 class ResponsiveAppBar extends StatefulWidget implements PreferredSizeWidget {
-  const ResponsiveAppBar({Key? key}) : super(key: key);
+  final int pageIndex;
+
+  const ResponsiveAppBar({
+    Key? key,
+    required this.pageIndex,
+  }) : super(key: key);
 
   @override
   State<ResponsiveAppBar> createState() => _ResponsiveAppBarState();
@@ -16,7 +22,9 @@ class ResponsiveAppBar extends StatefulWidget implements PreferredSizeWidget {
 class _ResponsiveAppBarState extends State<ResponsiveAppBar> {
   @override
   Widget build(BuildContext context) {
-    return SizeUtils.isDesktop(context) ? desktopAppBar() : mobileAppBar();
+    return ResponsiveWrapper.of(context).isDesktop
+        ? desktopAppBar()
+        : mobileAppBar();
   }
 
   Widget mobileAppBar() {
@@ -43,20 +51,41 @@ class _ResponsiveAppBarState extends State<ResponsiveAppBar> {
 
   Widget desktopAppBar() {
     return AppBar(
-      title: const Text(appName),
-      actions: [
-        _appBarActionsItem("About"),
-        _appBarActionsItem("Resume"),
-        _appBarActionsItem("Portfolio"),
-      ],
+      title: Text(
+        appName,
+        style: Theme.of(context)
+            .textTheme
+            .headline6
+            ?.copyWith(color: kPrimaryColor),
+      ),
+      backgroundColor: Colors.transparent,
+      elevation: 0,
+      actions: pageList
+          .map(
+            (item) => _appBarActionsItem(
+              index: item.index,
+              title: item.title,
+            ),
+          )
+          .toList(),
     );
   }
 
-  Center _appBarActionsItem(String title) {
+  Center _appBarActionsItem({required int index, required String title}) {
     return Center(
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding * 2),
-        child: Text(title),
+        padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
+        child: TextButton(
+          onPressed: () {},
+          child: Text(
+            title,
+            style: Theme.of(context).textTheme.bodyText1?.copyWith(
+                  color:
+                      widget.pageIndex == index ? kPrimaryColor : kBlackColor,
+                  fontWeight: FontWeight.w400,
+                ),
+          ),
+        ),
       ),
     );
   }

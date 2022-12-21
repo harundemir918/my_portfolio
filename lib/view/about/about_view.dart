@@ -5,83 +5,38 @@ Date: 20.12.2022
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:responsive_framework/responsive_framework.dart';
 
 import '../../core/constants/constants.dart';
-import '../../core/utils/size_utils.dart';
-import '../layout/responsive_layout.dart';
+import '../../core/utils/utils.dart';
+import '../widgets/portfolio_base_card.dart';
 
 class AboutView extends StatelessWidget {
   const AboutView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return ResponsiveLayout(
-      mobile: _aboutCardMobile(context, height: 1.4),
-      mobileLarge: _aboutCardMobile(context, height: 1.3),
-      tablet: const SizedBox(
-          // height: SizeUtils.getDynamicHeight(context, 1.5),
-          // child: Container(
-          //   margin: const EdgeInsets.all(kDefaultPadding),
-          //   decoration: BoxDecoration(
-          //     borderRadius: BorderRadius.circular(kDefaultPadding),
-          //   ),
-          //   child: _aboutCardBody(context),
-          // ),
-          ),
-      desktop: const SizedBox(
-          // height: SizeUtils.getDynamicHeight(context, 1.5),
-          // child: Container(
-          //   margin: const EdgeInsets.all(kDefaultPadding),
-          //   decoration: BoxDecoration(
-          //     borderRadius: BorderRadius.circular(kDefaultPadding),
-          //   ),
-          //   child: _aboutCardBody(context),
-          // ),
-          ),
-    );
-  }
-
-  SizedBox _aboutCardMobile(BuildContext context, {double height = 1.6}) {
-    return SizedBox(
-      height: SizeUtils.getDynamicHeight(context, height),
-      child: Container(
-        margin: const EdgeInsets.all(kDefaultPadding),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(kDefaultPadding),
-          boxShadow: const [
-            BoxShadow(
-              color: Colors.black12,
-              blurRadius: 10,
-              spreadRadius: 5,
-              offset: Offset(1, 1),
-            ),
-          ],
-        ),
-        child: _aboutCardBody(context),
+    return SingleChildScrollView(
+      child: PortfolioBaseCard(
+        cardBody: _aboutCardBody(context),
       ),
     );
   }
 
-  Column _aboutCardBody(BuildContext context) {
-    return Column(
+  Wrap _aboutCardBody(BuildContext context) {
+    return Wrap(
       children: [
-        Expanded(
-          flex: SizeUtils.isMobile(context) ? 60 : 55,
-          child: _aboutCardTopSectionVertical(context),
-        ),
-        Expanded(
-          flex: SizeUtils.isMobile(context) ? 40 : 45,
-          child: _aboutCardBottomSectionVertical(context),
-        ),
+        _aboutCardTopSection(context),
+        _aboutCardBottomSection(context),
       ],
     );
   }
 
-  Container _aboutCardTopSectionVertical(BuildContext context) {
+  Container _aboutCardTopSection(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(
-        horizontal: kDefaultPadding,
-        vertical: SizeUtils.getDynamicHeight(context, 0.05),
+      padding: const EdgeInsets.symmetric(
+        horizontal: kDefaultPadding * 2,
+        vertical: kDefaultPadding * 4,
       ),
       decoration: const BoxDecoration(
         color: kPrimaryColor,
@@ -89,25 +44,20 @@ class AboutView extends StatelessWidget {
           top: Radius.circular(kDefaultPadding),
         ),
       ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
+      child: ResponsiveRowColumn(
+        rowMainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        layout: ResponsiveWrapper.of(context).isSmallerThan(TABLET)
+            ? ResponsiveRowColumnType.COLUMN
+            : ResponsiveRowColumnType.ROW,
         children: [
-          _aboutCardImage(context),
-          const Spacer(),
-          Expanded(
-            flex: 6,
+          ResponsiveRowColumnItem(child: _aboutCardImage(context)),
+          ResponsiveRowColumnItem(
             child: Column(
               children: [
-                Expanded(
-                  flex: SizeUtils.isMobile(context) ? 2 : 1,
-                  child: _aboutCardTitle(context),
-                ),
-                Expanded(
-                  child: aboutCardDescription(context),
-                ),
-                Expanded(
-                  child: _aboutCardContactOptions(context),
-                ),
+                _aboutCardTitle(context),
+                _aboutCardDescription(context),
+                const SizedBox(height: kDefaultPadding * 2),
+                _aboutCardContactOptions(context),
               ],
             ),
           ),
@@ -121,18 +71,15 @@ class AboutView extends StatelessWidget {
       borderRadius: BorderRadius.circular(kDefaultPadding),
       child: Image.asset(
         "assets/images/profile.png",
-        width: SizeUtils.getDynamicWidth(context, 0.6),
+        width: ResponsiveWrapper.of(context).isSmallerThan(TABLET) ? 200 : 270,
         fit: BoxFit.fitWidth,
       ),
     );
   }
 
-  SizedBox _aboutCardTitle(BuildContext context) {
-    return SizedBox(
-      width: SizeUtils.getDynamicWidth(
-        context,
-        SizeUtils.isMobile(context) ? 0.8 : 0.9,
-      ),
+  Widget _aboutCardTitle(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: kDefaultPadding),
       child: Text(
         appName,
         style: Theme.of(context).textTheme.headline3?.copyWith(
@@ -145,10 +92,10 @@ class AboutView extends StatelessWidget {
     );
   }
 
-  Center aboutCardDescription(BuildContext context) {
+  Widget _aboutCardDescription(BuildContext context) {
     return Center(
       child: Text(
-        "Flutter Developer",
+        jobTitle,
         style: Theme.of(context).textTheme.headline6?.copyWith(
               color: kWhiteColor,
               fontWeight: FontWeight.w400,
@@ -157,41 +104,38 @@ class AboutView extends StatelessWidget {
     );
   }
 
-  Container _aboutCardContactOptions(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.symmetric(
-        horizontal: SizeUtils.getDynamicWidth(context, 0.2),
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          Expanded(
-            child: _aboutCardContactItem("assets/images/linkedin.svg"),
+  Widget _aboutCardContactOptions(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: contactList
+          .map((contact) => _aboutCardContactItem(
+                icon: contact.icon,
+                url: contact.url,
+              ))
+          .toList(),
+    );
+  }
+
+  Widget _aboutCardContactItem({required String icon, required String url}) {
+    return SizedBox(
+      width: kDefaultIconSize,
+      height: kDefaultIconSize,
+      child: IconButton(
+        onPressed: () => Utils.navigateToUrl(url),
+        icon: CircleAvatar(
+          backgroundColor: kWhiteColor,
+          child: SvgPicture.asset(
+            icon,
+            width: kDefaultIconSize / 2,
+            height: kDefaultIconSize / 2,
+            fit: BoxFit.fitWidth,
           ),
-          Expanded(
-            child: _aboutCardContactItem("assets/images/github.svg"),
-          ),
-          Expanded(
-            child: _aboutCardContactItem("assets/images/stack_overflow.svg"),
-          ),
-        ],
+        ),
       ),
     );
   }
 
-  CircleAvatar _aboutCardContactItem(String icon) {
-    return CircleAvatar(
-      backgroundColor: kWhiteColor,
-      child: SvgPicture.asset(
-        icon,
-        width: 24,
-        height: 24,
-        fit: BoxFit.fitWidth,
-      ),
-    );
-  }
-
-  Container _aboutCardBottomSectionVertical(BuildContext context) {
+  Container _aboutCardBottomSection(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(kDefaultPadding * 2),
       decoration: const BoxDecoration(
@@ -200,33 +144,51 @@ class AboutView extends StatelessWidget {
           bottom: Radius.circular(kDefaultPadding),
         ),
       ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+      child: ResponsiveRowColumn(
+        rowMainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        layout: ResponsiveWrapper.of(context).isSmallerThan(TABLET)
+            ? ResponsiveRowColumnType.COLUMN
+            : ResponsiveRowColumnType.ROW,
+        columnMainAxisSize: MainAxisSize.min,
         children: [
-          _aboutCardInfoTitle(context),
-          _aboutCardInfoSummary(),
-          _aboutCardBottomInfoRow(
-            context,
-            title: "Address",
-            description: "Istanbul, Turkiye",
+          ResponsiveRowColumnItem(
+            rowFlex: 4,
+            columnFlex: 1,
+            child: _aboutCardInfoTop(context),
           ),
-          _aboutCardBottomInfoRow(
-            context,
-            title: "Job Status",
-            description: "Fulltime Developer",
+          ResponsiveRowColumnItem(
+            rowFlex: 1,
+            columnFlex: 1,
+            child: SizedBox.shrink(),
+          ),
+          ResponsiveRowColumnItem(
+            rowFlex: 4,
+            columnFlex: 1,
+            child: _aboutCardInfoBottom(context),
           ),
         ],
       ),
     );
   }
 
-  Text _aboutCardInfoTitle(BuildContext context) {
+  Widget _aboutCardInfoTop(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        _aboutCardInfoTitle(context),
+        _aboutCardInfoSummary(),
+      ],
+    );
+  }
+
+  Widget _aboutCardInfoTitle(BuildContext context) {
     return Text(
       "About",
       style: Theme.of(context)
           .textTheme
           .headline5
           ?.copyWith(fontWeight: FontWeight.bold),
+      overflow: TextOverflow.ellipsis,
     );
   }
 
@@ -234,9 +196,26 @@ class AboutView extends StatelessWidget {
     return const Padding(
       padding: EdgeInsets.symmetric(vertical: kDefaultPadding),
       child: Text(
-        "I graduated from the Software Engineering program at Firat University's Faculty of Technology. In 2018-2019, I studied at the Katowice Information Technology Institute in Poland as part of the Erasmus program. I have over three years of experience as a Mobile Developer and have been developing cross-platform apps with Flutter for the past two years.",
+        jobDescription,
         textAlign: TextAlign.justify,
       ),
+    );
+  }
+
+  Widget _aboutCardInfoBottom(BuildContext context) {
+    return Column(
+      children: [
+        _aboutCardBottomInfoRow(
+          context,
+          title: "Address",
+          description: "Istanbul, Turkiye",
+        ),
+        _aboutCardBottomInfoRow(
+          context,
+          title: "Job Status",
+          description: "Fulltime Developer",
+        ),
+      ],
     );
   }
 
@@ -248,16 +227,20 @@ class AboutView extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: kDefaultPadding),
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Expanded(
             child: Text(
               title,
-              style: Theme.of(context).textTheme.bodyText1,
+              style: Theme.of(context)
+                  .textTheme
+                  .bodyText1
+                  ?.copyWith(fontWeight: FontWeight.bold),
             ),
           ),
           Expanded(
-            child: Text(description),
-          ),
+              flex: ResponsiveWrapper.of(context).isSmallerThan(TABLET) ? 2 : 3,
+              child: Text(description)),
         ],
       ),
     );
