@@ -4,14 +4,29 @@ Date: 20.12.2022
 */
 
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../../core/constants/constants.dart';
-import '../../core/data/page_list.dart';
+import '../../core/providers/page_provider.dart';
 
-class DrawerWidget extends StatelessWidget {
-  final int pageIndex;
+class DrawerWidget extends StatefulWidget {
+  const DrawerWidget({super.key});
 
-  const DrawerWidget({super.key, required this.pageIndex});
+  @override
+  State<DrawerWidget> createState() => _DrawerWidgetState();
+}
+
+class _DrawerWidgetState extends State<DrawerWidget> {
+  PageProvider _pageProvider = PageProvider();
+
+  @override
+  void didChangeDependencies() {
+    final pageProvider = Provider.of<PageProvider>(context);
+    if (_pageProvider != pageProvider) {
+      _pageProvider = pageProvider;
+    }
+    super.didChangeDependencies();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -42,13 +57,17 @@ class DrawerWidget extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: kDefaultPadding),
       child: TextButton(
-        onPressed: () {},
+        onPressed: () {
+          _pageProvider.changePage(index);
+          Scaffold.of(context).closeEndDrawer();
+        },
         child: Text(
           title,
           style: Theme.of(context).textTheme.bodyText1?.copyWith(
                 color: kWhiteColor,
-                fontWeight:
-                    pageIndex == index ? FontWeight.bold : FontWeight.w400,
+                fontWeight: _pageProvider.pageIndex == index
+                    ? FontWeight.bold
+                    : FontWeight.w400,
               ),
         ),
       ),

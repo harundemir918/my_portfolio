@@ -5,13 +5,16 @@ Date: 20.12.2022
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:provider/provider.dart';
 import 'package:responsive_framework/responsive_framework.dart'
     deferred as responsive_framework;
 
 import '../../core/constants/constants.dart';
+import '../../core/constants/resume_constants.dart';
+import '../../core/providers/page_provider.dart';
 import '../../core/utils/utils.dart';
-import '../widgets/custom_circular_loading_indicator.dart';
 import '../widgets/portfolio_base_card.dart';
+import '../widgets/type_writer_text.dart';
 
 class AboutView extends StatefulWidget {
   const AboutView({Key? key}) : super(key: key);
@@ -21,6 +24,18 @@ class AboutView extends StatefulWidget {
 }
 
 class _AboutViewState extends State<AboutView> {
+  PageProvider _pageProvider = PageProvider();
+
+  @override
+  void didChangeDependencies() {
+    final pageProvider = Provider.of<PageProvider>(context);
+    if (_pageProvider != pageProvider) {
+      _pageProvider = pageProvider;
+    }
+
+    super.didChangeDependencies();
+  }
+
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
@@ -35,7 +50,7 @@ class _AboutViewState extends State<AboutView> {
             ),
           );
         } else {
-          return const CustomCircularProgressIndicator();
+          return const SizedBox.shrink();
         }
       },
     );
@@ -90,7 +105,7 @@ class _AboutViewState extends State<AboutView> {
     return ClipRRect(
       borderRadius: BorderRadius.circular(kDefaultPadding),
       child: Image.asset(
-        "assets/images/profile.png",
+        profileUrl,
         width: responsive_framework.ResponsiveWrapper.of(context)
                 .isSmallerThan(responsive_framework.TABLET)
             ? 200
@@ -116,25 +131,19 @@ class _AboutViewState extends State<AboutView> {
   }
 
   Widget _aboutCardDescription(BuildContext context) {
-    return Center(
-      child: Text(
-        jobTitle,
-        style: Theme.of(context).textTheme.headline6?.copyWith(
-              color: kWhiteColor,
-              fontWeight: FontWeight.w400,
-            ),
-      ),
-    );
+    return const TypeWriterText();
   }
 
   Widget _aboutCardContactOptions(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: contactList
-          .map((contact) => _aboutCardContactItem(
-                icon: contact.icon,
-                url: contact.url,
-              ))
+          .map(
+            (contact) => _aboutCardContactItem(
+              icon: contact.icon,
+              url: contact.url,
+            ),
+          )
           .toList(),
     );
   }

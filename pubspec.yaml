@@ -40,6 +40,8 @@ dependencies:
   responsive_framework: ^0.2.0
   url_launcher: ^6.1.7
   url_strategy: ^0.2.0
+  google_fonts: ^3.0.1
+  provider: ^6.0.5
 
 dev_dependencies:
   flutter_test:
@@ -79,10 +81,10 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  fonts:
-    - family: Poppins
-      fonts:
-        - asset: assets/fonts/Poppins-Regular.ttf
+  # fonts:
+  #   - family: Poppins
+  #     fonts:
+  #       - asset: assets/fonts/Poppins-Regular.ttf
 
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

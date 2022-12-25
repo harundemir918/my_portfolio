@@ -5,27 +5,12 @@ Date: 20.12.2022
 
 import 'package:flutter/material.dart';
 
-import '../models/contact_model.dart';
+import '../../view/about/about_view.dart';
+import '../../view/portfolio/portfolio_view.dart';
+import '../../view/resume/resume_view.dart';
+import '../models/page_model.dart';
 
 const String appName = "Harun Demir";
-const String jobTitle = "Flutter Developer";
-const String jobDescription =
-    "I graduated from the Software Engineering program at Firat University's Faculty of Technology. In 2018-2019, I studied at the Katowice Information Technology Institute in Poland as part of the Erasmus program. I have over three years of experience as a Mobile Developer and have been developing cross-platform apps with Flutter for the past two years.";
-
-List<ContactModel> contactList = [
-  ContactModel(
-    icon: "assets/images/linkedin.svg",
-    url: "https://www.linkedin.com/in/harundemir918/",
-  ),
-  ContactModel(
-    icon: "assets/images/github.svg",
-    url: "https://github.com/harundemir918",
-  ),
-  ContactModel(
-    icon: "assets/images/stack_overflow.svg",
-    url: "https://stackoverflow.com/users/13064606/harundemir918",
-  ),
-];
 
 const Color kPrimaryColor = Colors.orange;
 const Color kWhiteColor = Colors.white;
@@ -40,3 +25,21 @@ const double desktopMinWidth = 992;
 
 const double kDefaultPadding = 10;
 const double kDefaultIconSize = 48;
+
+List<PageModel> pageList = [
+  PageModel(
+    index: 0,
+    title: "About",
+    page: const AboutView(),
+  ),
+  PageModel(
+    index: 1,
+    title: "Resume",
+    page: const ResumeView(),
+  ),
+  PageModel(
+    index: 2,
+    title: "Portfolio",
+    page: const PortfolioView(),
+  ),
+];

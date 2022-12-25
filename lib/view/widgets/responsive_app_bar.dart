@@ -1,16 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
 import '../../core/constants/constants.dart';
-import '../../core/data/page_list.dart';
+import '../../core/providers/page_provider.dart';
 
 class ResponsiveAppBar extends StatefulWidget implements PreferredSizeWidget {
-  final int pageIndex;
-
-  const ResponsiveAppBar({
-    Key? key,
-    required this.pageIndex,
-  }) : super(key: key);
+  const ResponsiveAppBar({Key? key}) : super(key: key);
 
   @override
   State<ResponsiveAppBar> createState() => _ResponsiveAppBarState();
@@ -20,6 +16,17 @@ class ResponsiveAppBar extends StatefulWidget implements PreferredSizeWidget {
 }
 
 class _ResponsiveAppBarState extends State<ResponsiveAppBar> {
+  PageProvider _pageProvider = PageProvider();
+
+  @override
+  void didChangeDependencies() {
+    final pageProvider = Provider.of<PageProvider>(context);
+    if (_pageProvider != pageProvider) {
+      _pageProvider = pageProvider;
+    }
+    super.didChangeDependencies();
+  }
+
   @override
   Widget build(BuildContext context) {
     return ResponsiveWrapper.of(context).isDesktop
@@ -76,12 +83,15 @@ class _ResponsiveAppBarState extends State<ResponsiveAppBar> {
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
         child: TextButton(
-          onPressed: () {},
+          onPressed: () {
+            _pageProvider.changePage(index);
+          },
           child: Text(
             title,
             style: Theme.of(context).textTheme.bodyText1?.copyWith(
-                  color:
-                      widget.pageIndex == index ? kPrimaryColor : kBlackColor,
+                  color: _pageProvider.pageIndex == index
+                      ? kPrimaryColor
+                      : kBlackColor,
                   fontWeight: FontWeight.w400,
                 ),
           ),

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
-import '../../core/data/page_list.dart';
-import '../../core/utils/app_scroll_behavior.dart';
+import '../../core/constants/constants.dart';
+import '../../core/providers/page_provider.dart';
 import '../widgets/drawer_widget.dart';
 import '../widgets/responsive_app_bar.dart';
 
@@ -14,30 +15,30 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
-  int _pageIndex = 0;
+  PageProvider _pageProvider = PageProvider();
 
-  void _changePage(int index) {
-    _pageIndex = index;
-    setState(() {});
+  @override
+  void didChangeDependencies() {
+    final pageProvider = Provider.of<PageProvider>(context);
+    if (_pageProvider != pageProvider) {
+      _pageProvider = pageProvider;
+    }
+
+    super.didChangeDependencies();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: ResponsiveAppBar(pageIndex: _pageIndex),
+      appBar: const ResponsiveAppBar(),
       endDrawer: !ResponsiveWrapper.of(context).isDesktop
-          ? DrawerWidget(pageIndex: _pageIndex)
+          ? const DrawerWidget()
           : null,
       body: _homeBody(),
     );
   }
 
   Widget _homeBody() {
-    return PageView.builder(
-      scrollBehavior: AppScrollBehavior(),
-      itemCount: pageList.length,
-      itemBuilder: (context, index) => pageList[index].page,
-      onPageChanged: (index) => _changePage(index),
-    );
+    return pageList[_pageProvider.pageIndex].page;
   }
 }
