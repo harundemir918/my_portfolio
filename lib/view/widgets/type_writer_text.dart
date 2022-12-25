@@ -103,25 +103,24 @@ class _TypeWriterTextState extends State<TypeWriterText> {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Row(
-        children: [
-          Text(
-            _typedText,
-            style: Theme.of(context).textTheme.headline6?.copyWith(
-                  color: kWhiteColor,
-                  fontWeight: FontWeight.w400,
-                ),
-          ),
-          Text(
-            "|",
-            style: Theme.of(context).textTheme.headline6?.copyWith(
-                  color: kWhiteColor,
-                  fontWeight: FontWeight.w400,
-                ),
-          ),
-        ],
-      ),
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Text(
+          _typedText,
+          style: Theme.of(context).textTheme.headline6?.copyWith(
+                color: kWhiteColor,
+                fontWeight: FontWeight.w400,
+              ),
+        ),
+        Text(
+          "|",
+          style: Theme.of(context).textTheme.headline6?.copyWith(
+                color: kWhiteColor,
+                fontWeight: FontWeight.w400,
+              ),
+        ),
+      ],
     );
   }
 }
