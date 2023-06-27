@@ -5,9 +5,9 @@ Date: 20.12.2022
 
 import 'package:flutter/material.dart';
 
-import '../../view/about/about_view.dart';
-import '../../view/portfolio/portfolio_view.dart';
-import '../../view/resume/resume_view.dart';
+import '../../ui/views/about/about_view.dart';
+import '../../ui/views/portfolio/portfolio_view.dart';
+import '../../ui/views/resume/resume_view.dart';
 import '../models/page_model.dart';
 
 const String appName = "Harun Demir";
