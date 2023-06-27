@@ -79,8 +79,8 @@ class _AboutViewState extends State<AboutView> {
       ),
       child: responsive_framework.ResponsiveRowColumn(
         rowMainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        layout: responsive_framework.ResponsiveWrapper.of(context)
-                .isSmallerThan(responsive_framework.TABLET)
+        layout: responsive_framework.ResponsiveBreakpoints.of(context)
+                .smallerThan(responsive_framework.TABLET)
             ? responsive_framework.ResponsiveRowColumnType.COLUMN
             : responsive_framework.ResponsiveRowColumnType.ROW,
         children: [
@@ -106,8 +106,8 @@ class _AboutViewState extends State<AboutView> {
       borderRadius: BorderRadius.circular(kDefaultPadding),
       child: Image.asset(
         profileUrl,
-        width: responsive_framework.ResponsiveWrapper.of(context)
-                .isSmallerThan(responsive_framework.TABLET)
+        width: responsive_framework.ResponsiveBreakpoints.of(context)
+                .smallerThan(responsive_framework.TABLET)
             ? 200
             : 270,
         fit: BoxFit.fitWidth,
@@ -178,8 +178,8 @@ class _AboutViewState extends State<AboutView> {
       ),
       child: responsive_framework.ResponsiveRowColumn(
         rowMainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        layout: responsive_framework.ResponsiveWrapper.of(context)
-                .isSmallerThan(responsive_framework.TABLET)
+        layout: responsive_framework.ResponsiveBreakpoints.of(context)
+                .smallerThan(responsive_framework.TABLET)
             ? responsive_framework.ResponsiveRowColumnType.COLUMN
             : responsive_framework.ResponsiveRowColumnType.ROW,
         columnMainAxisSize: MainAxisSize.min,
@@ -272,8 +272,8 @@ class _AboutViewState extends State<AboutView> {
             ),
           ),
           Expanded(
-              flex: responsive_framework.ResponsiveWrapper.of(context)
-                      .isSmallerThan(responsive_framework.TABLET)
+              flex: responsive_framework.ResponsiveBreakpoints.of(context)
+                      .smallerThan(responsive_framework.TABLET)
                   ? 2
                   : 3,
               child: Text(description)),

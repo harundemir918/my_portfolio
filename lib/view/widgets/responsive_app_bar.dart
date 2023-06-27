@@ -29,7 +29,7 @@ class _ResponsiveAppBarState extends State<ResponsiveAppBar> {
 
   @override
   Widget build(BuildContext context) {
-    return ResponsiveWrapper.of(context).isDesktop
+    return ResponsiveBreakpoints.of(context).isDesktop
         ? desktopAppBar()
         : mobileAppBar();
   }

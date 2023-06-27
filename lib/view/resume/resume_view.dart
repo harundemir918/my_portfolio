@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:my_portfolio/core/constants/resume_constants.dart';
-import 'package:my_portfolio/core/utils/size_utils.dart';
 import 'package:provider/provider.dart';
 import 'package:responsive_framework/responsive_framework.dart'
     deferred as responsive_framework;
 
 import '../../core/constants/constants.dart';
+import '../../core/constants/resume_constants.dart';
 import '../../core/models/resume_model.dart';
 import '../../core/providers/page_provider.dart';
+import '../../core/utils/size_utils.dart';
 import '../widgets/portfolio_base_card.dart';
 
 class ResumeView extends StatefulWidget {
@@ -103,8 +103,8 @@ class _ResumeViewState extends State<ResumeView> {
       child: responsive_framework.ResponsiveRowColumn(
         rowMainAxisAlignment: MainAxisAlignment.spaceBetween,
         rowCrossAxisAlignment: CrossAxisAlignment.start,
-        layout: responsive_framework.ResponsiveWrapper.of(context)
-                .isSmallerThan(responsive_framework.TABLET)
+        layout: responsive_framework.ResponsiveBreakpoints.of(context)
+                .smallerThan(responsive_framework.TABLET)
             ? responsive_framework.ResponsiveRowColumnType.COLUMN
             : responsive_framework.ResponsiveRowColumnType.ROW,
         columnMainAxisSize: MainAxisSize.min,
@@ -231,8 +231,8 @@ class _ResumeViewState extends State<ResumeView> {
       padding: const EdgeInsets.symmetric(vertical: kDefaultPadding / 2),
       child: responsive_framework.ResponsiveRowColumn(
         columnCrossAxisAlignment: CrossAxisAlignment.start,
-        layout: responsive_framework.ResponsiveWrapper.of(context)
-                .isSmallerThan(responsive_framework.DESKTOP)
+        layout: responsive_framework.ResponsiveBreakpoints.of(context)
+                .smallerThan(responsive_framework.DESKTOP)
             ? responsive_framework.ResponsiveRowColumnType.COLUMN
             : responsive_framework.ResponsiveRowColumnType.ROW,
         children: [

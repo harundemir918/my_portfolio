@@ -45,31 +45,57 @@ class _CustomMaterialAppState extends State<CustomMaterialApp> {
               ChangeNotifierProvider(create: (_) => PageProvider()),
             ],
             child: MaterialApp(
+              // builder: (context, child) =>
+              //     responsive_framework.ResponsiveBreakpoints.builder(
+              //   child,
+              //   maxWidth: appMaxWidth,
+              //   minWidth: appMinWidth,
+              //   defaultScale: true,
+              //   breakpoints: [
+              //     responsive_framework.ResponsiveBreakpoint.resize(
+              //       appMinWidth,
+              //       name: responsive_framework.MOBILE,
+              //     ),
+              //     responsive_framework.ResponsiveBreakpoint.resize(
+              //       mobileLargeMinWidth,
+              //       name: responsive_framework.PHONE,
+              //     ),
+              //     responsive_framework.ResponsiveBreakpoint.resize(
+              //       tabletMinWidth,
+              //       name: responsive_framework.TABLET,
+              //     ),
+              //     responsive_framework.ResponsiveBreakpoint.resize(
+              //       desktopMinWidth,
+              //       name: responsive_framework.DESKTOP,
+              //     ),
+              //   ],
+              //   backgroundColor: kWhiteColor,
+              // ),
               builder: (context, child) =>
-                  responsive_framework.ResponsiveWrapper.builder(
-                child,
-                maxWidth: appMaxWidth,
-                minWidth: appMinWidth,
-                defaultScale: true,
+                  responsive_framework.ResponsiveBreakpoints.builder(
+                child: child!,
                 breakpoints: [
-                  responsive_framework.ResponsiveBreakpoint.resize(
-                    appMinWidth,
+                  responsive_framework.Breakpoint(
+                    start: appMinWidth,
+                    end: mobileLargeMinWidth,
                     name: responsive_framework.MOBILE,
                   ),
-                  responsive_framework.ResponsiveBreakpoint.resize(
-                    mobileLargeMinWidth,
+                  responsive_framework.Breakpoint(
+                    start: mobileLargeMinWidth + 1,
+                    end: tabletMinWidth,
                     name: responsive_framework.PHONE,
                   ),
-                  responsive_framework.ResponsiveBreakpoint.resize(
-                    tabletMinWidth,
+                  responsive_framework.Breakpoint(
+                    start: tabletMinWidth + 1,
+                    end: desktopMinWidth,
                     name: responsive_framework.TABLET,
                   ),
-                  responsive_framework.ResponsiveBreakpoint.resize(
-                    desktopMinWidth,
+                  responsive_framework.Breakpoint(
+                    start: desktopMinWidth + 1,
+                    end: double.infinity,
                     name: responsive_framework.DESKTOP,
                   ),
                 ],
-                backgroundColor: kWhiteColor,
               ),
               title: appName,
               debugShowCheckedModeBanner: false,

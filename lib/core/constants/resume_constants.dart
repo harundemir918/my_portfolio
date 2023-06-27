@@ -3,9 +3,8 @@ Author: Harun Demir
 Date: 25.12.2022
 */
 
-import 'package:my_portfolio/core/models/resume_model.dart';
-
 import '../models/contact_model.dart';
+import '../models/resume_model.dart';
 
 const List<String> jobTitles = [
   "Flutter Developer",

@@ -31,7 +31,7 @@ class _HomeViewState extends State<HomeView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const ResponsiveAppBar(),
-      endDrawer: !ResponsiveWrapper.of(context).isDesktop
+      endDrawer: !ResponsiveBreakpoints.of(context).isDesktop
           ? const DrawerWidget()
           : null,
       body: _homeBody(),
