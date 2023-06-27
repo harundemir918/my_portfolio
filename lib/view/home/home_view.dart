@@ -5,7 +5,7 @@ import 'package:responsive_framework/responsive_framework.dart';
 import '../../core/constants/constants.dart';
 import '../../core/providers/page_provider.dart';
 import '../widgets/drawer_widget.dart';
-import '../widgets/responsive_app_bar.dart';
+import 'components/home_app_bar.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({Key? key}) : super(key: key);
@@ -29,7 +29,7 @@ class _HomeViewState extends State<HomeView> {
 
   @override
   Widget build(BuildContext context) => Scaffold(
-        appBar: const ResponsiveAppBar(),
+        appBar: const HomeAppBar(),
         endDrawer: !ResponsiveBreakpoints.of(context).isDesktop
             ? const DrawerWidget()
             : null,
