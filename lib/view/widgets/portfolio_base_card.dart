@@ -9,8 +9,8 @@ class PortfolioBaseCard extends StatefulWidget {
   final Widget cardBody;
 
   const PortfolioBaseCard({
-    Key? key,
     required this.cardBody,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -52,28 +52,24 @@ class _PortfolioBaseCardState extends State<PortfolioBaseCard> {
   }
 
   @override
-  Widget build(BuildContext context) {
-    return _baseCard(context);
-  }
+  Widget build(BuildContext context) => _baseCard(context);
 
-  Widget _baseCard(BuildContext context) {
-    return AnimatedContainer(
-      duration: const Duration(seconds: 1),
-      curve: Curves.linear,
-      margin: const EdgeInsets.all(kDefaultPadding * 2),
-      decoration: BoxDecoration(
-        color: kWhiteColor,
-        borderRadius: BorderRadius.circular(kDefaultPadding),
-        boxShadow: [
-          BoxShadow(
-            color: color,
-            blurRadius: 10,
-            spreadRadius: 5,
-            offset: const Offset(1, 1),
-          ),
-        ],
-      ),
-      child: widget.cardBody,
-    );
-  }
+  Widget _baseCard(BuildContext context) => AnimatedContainer(
+        duration: const Duration(seconds: 1),
+        curve: Curves.linear,
+        margin: const EdgeInsets.all(kDefaultPadding * 2),
+        decoration: BoxDecoration(
+          color: kWhiteColor,
+          borderRadius: BorderRadius.circular(kDefaultPadding),
+          boxShadow: [
+            BoxShadow(
+              color: color,
+              blurRadius: 10,
+              spreadRadius: 5,
+              offset: const Offset(1, 1),
+            ),
+          ],
+        ),
+        child: widget.cardBody,
+      );
 }

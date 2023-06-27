@@ -45,7 +45,7 @@ class _TypeWriterTextState extends State<TypeWriterText> {
   }
 
   Future<void> _typeForward() async {
-    for (int i = _nextToTypeIndex; i < _textToType.length; ++i) {
+    for (var i = _nextToTypeIndex; i < _textToType.length; ++i) {
       await Future.delayed(const Duration(milliseconds: 50));
 
       if (!mounted) {
@@ -59,7 +59,7 @@ class _TypeWriterTextState extends State<TypeWriterText> {
   }
 
   Future<void> _eraseToIndex(int index) async {
-    for (int i = _typedText.length - 1; i >= index; --i) {
+    for (var i = _typedText.length - 1; i >= index; --i) {
       await Future.delayed(const Duration(milliseconds: 40));
 
       if (!mounted) {
@@ -102,25 +102,23 @@ class _TypeWriterTextState extends State<TypeWriterText> {
   // }
 
   @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Text(
-          _typedText,
-          style: Theme.of(context).textTheme.headline6?.copyWith(
-                color: kWhiteColor,
-                fontWeight: FontWeight.w400,
-              ),
-        ),
-        Text(
-          "|",
-          style: Theme.of(context).textTheme.headline6?.copyWith(
-                color: kWhiteColor,
-                fontWeight: FontWeight.w400,
-              ),
-        ),
-      ],
-    );
-  }
+  Widget build(BuildContext context) => Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(
+            _typedText,
+            style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                  color: kWhiteColor,
+                  fontWeight: FontWeight.w400,
+                ),
+          ),
+          Text(
+            "|",
+            style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                  color: kWhiteColor,
+                  fontWeight: FontWeight.w400,
+                ),
+          ),
+        ],
+      );
 }

@@ -29,48 +29,45 @@ class _DrawerWidgetState extends State<DrawerWidget> {
   }
 
   @override
-  Widget build(BuildContext context) {
-    return Drawer(
-      backgroundColor: kPrimaryColor,
-      child: Padding(
-        padding: const EdgeInsets.all(kDefaultPadding * 2),
-        child: Column(
-          children: pageList
-              .map(
-                (item) => _appBarActionsItem(
-                  context,
-                  index: item.index,
-                  title: item.title,
-                ),
-              )
-              .toList(),
+  Widget build(BuildContext context) => Drawer(
+        backgroundColor: kPrimaryColor,
+        child: Padding(
+          padding: const EdgeInsets.all(kDefaultPadding * 2),
+          child: Column(
+            children: pageList
+                .map(
+                  (item) => _appBarActionsItem(
+                    context,
+                    index: item.index,
+                    title: item.title,
+                  ),
+                )
+                .toList(),
+          ),
         ),
-      ),
-    );
-  }
+      );
 
   Widget _appBarActionsItem(
     BuildContext context, {
     required int index,
     required String title,
-  }) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: kDefaultPadding),
-      child: TextButton(
-        onPressed: () {
-          _pageProvider.changePage(index);
-          Scaffold.of(context).closeEndDrawer();
-        },
-        child: Text(
-          title,
-          style: Theme.of(context).textTheme.bodyText1?.copyWith(
-                color: kWhiteColor,
-                fontWeight: _pageProvider.pageIndex == index
-                    ? FontWeight.bold
-                    : FontWeight.w400,
-              ),
+  }) =>
+      Padding(
+        padding: const EdgeInsets.symmetric(vertical: kDefaultPadding),
+        child: TextButton(
+          onPressed: () {
+            _pageProvider.changePage(index);
+            Scaffold.of(context).closeEndDrawer();
+          },
+          child: Text(
+            title,
+            style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                  color: kWhiteColor,
+                  fontWeight: _pageProvider.pageIndex == index
+                      ? FontWeight.bold
+                      : FontWeight.w400,
+                ),
+          ),
         ),
-      ),
-    );
-  }
+      );
 }

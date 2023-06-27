@@ -28,17 +28,13 @@ class _HomeViewState extends State<HomeView> {
   }
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: const ResponsiveAppBar(),
-      endDrawer: !ResponsiveBreakpoints.of(context).isDesktop
-          ? const DrawerWidget()
-          : null,
-      body: _homeBody(),
-    );
-  }
+  Widget build(BuildContext context) => Scaffold(
+        appBar: const ResponsiveAppBar(),
+        endDrawer: !ResponsiveBreakpoints.of(context).isDesktop
+            ? const DrawerWidget()
+            : null,
+        body: _homeBody(),
+      );
 
-  Widget _homeBody() {
-    return pageList[_pageProvider.pageIndex].page;
-  }
+  Widget _homeBody() => pageList[_pageProvider.pageIndex].page;
 }

@@ -28,75 +28,67 @@ class _ResponsiveAppBarState extends State<ResponsiveAppBar> {
   }
 
   @override
-  Widget build(BuildContext context) {
-    return ResponsiveBreakpoints.of(context).isDesktop
-        ? desktopAppBar()
-        : mobileAppBar();
-  }
+  Widget build(BuildContext context) =>
+      ResponsiveBreakpoints.of(context).isDesktop
+          ? desktopAppBar()
+          : mobileAppBar();
 
-  Widget mobileAppBar() {
-    return AppBar(
-      title: const Text(appName),
-      actions: [
-        _drawerButton(),
-      ],
-    );
-  }
+  Widget mobileAppBar() => AppBar(
+        title: const Text(appName),
+        actions: [
+          _drawerButton(),
+        ],
+      );
 
-  Padding _drawerButton() {
-    return Padding(
-      padding: const EdgeInsets.only(right: kDefaultPadding),
-      child: IconButton(
-        onPressed: () {
-          Scaffold.of(context).openEndDrawer();
-        },
-        icon: const Icon(Icons.menu),
-        tooltip: "Open navigation menu",
-      ),
-    );
-  }
-
-  Widget desktopAppBar() {
-    return AppBar(
-      title: Text(
-        appName,
-        style: Theme.of(context)
-            .textTheme
-            .headline6
-            ?.copyWith(color: kPrimaryColor),
-      ),
-      backgroundColor: Colors.transparent,
-      elevation: 0,
-      actions: pageList
-          .map(
-            (item) => _appBarActionsItem(
-              index: item.index,
-              title: item.title,
-            ),
-          )
-          .toList(),
-    );
-  }
-
-  Center _appBarActionsItem({required int index, required String title}) {
-    return Center(
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
-        child: TextButton(
+  Padding _drawerButton() => Padding(
+        padding: const EdgeInsets.only(right: kDefaultPadding),
+        child: IconButton(
           onPressed: () {
-            _pageProvider.changePage(index);
+            Scaffold.of(context).openEndDrawer();
           },
-          child: Text(
-            title,
-            style: Theme.of(context).textTheme.bodyText1?.copyWith(
-                  color: _pageProvider.pageIndex == index
-                      ? kPrimaryColor
-                      : kBlackColor,
-                  fontWeight: FontWeight.w400,
-                ),
+          icon: const Icon(Icons.menu),
+          tooltip: "Open navigation menu",
+        ),
+      );
+
+  Widget desktopAppBar() => AppBar(
+        title: Text(
+          appName,
+          style: Theme.of(context)
+              .textTheme
+              .titleLarge
+              ?.copyWith(color: kPrimaryColor),
+        ),
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        actions: pageList
+            .map(
+              (item) => _appBarActionsItem(
+                index: item.index,
+                title: item.title,
+              ),
+            )
+            .toList(),
+      );
+
+  Center _appBarActionsItem({required int index, required String title}) =>
+      Center(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
+          child: TextButton(
+            onPressed: () {
+              _pageProvider.changePage(index);
+            },
+            child: Text(
+              title,
+              style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                    color: _pageProvider.pageIndex == index
+                        ? kPrimaryColor
+                        : kBlackColor,
+                    fontWeight: FontWeight.w400,
+                  ),
+            ),
           ),
         ),
-      ),
-    );
-  }
+      );
 }
