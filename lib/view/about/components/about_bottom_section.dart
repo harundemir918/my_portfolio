@@ -36,11 +36,12 @@ class AboutBottomSection extends StatelessWidget {
                     ? responsive_framework.ResponsiveRowColumnType.COLUMN
                     : responsive_framework.ResponsiveRowColumnType.ROW,
                 columnMainAxisSize: MainAxisSize.min,
+                // ignore: prefer_const_literals_to_create_immutables
                 children: [
                   responsive_framework.ResponsiveRowColumnItem(
                     rowFlex: 4,
                     columnFlex: 1,
-                    child: AboutInfoTop(),
+                    child: const AboutInfoTop(),
                   ),
                   responsive_framework.ResponsiveRowColumnItem(
                     rowFlex: 1,
@@ -50,7 +51,7 @@ class AboutBottomSection extends StatelessWidget {
                   responsive_framework.ResponsiveRowColumnItem(
                     rowFlex: 4,
                     columnFlex: 1,
-                    child: AboutInfoBottom(),
+                    child: const AboutInfoBottom(),
                   ),
                 ],
               ),
