@@ -39,7 +39,7 @@ class DrawerWidget extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: kDefaultPadding),
         child: TextButton(
           onPressed: () {
-            BaseController.homeController.changePage(index);
+            BaseController.navigationController.changePage(index);
             Scaffold.of(context).closeEndDrawer();
           },
           child: Text(
@@ -47,7 +47,8 @@ class DrawerWidget extends StatelessWidget {
             style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                   color: kWhiteColor,
                   fontWeight:
-                      BaseController.homeController.pageIndex.value == index
+                      BaseController.navigationController.pageIndex.value ==
+                              index
                           ? FontWeight.bold
                           : FontWeight.w400,
                 ),

@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_framework/responsive_framework.dart'
     deferred as responsive_framework;
 import 'package:url_strategy/url_strategy.dart';
 
 import 'core/constants/constants.dart';
-import 'core/controllers/home/home_controller.dart';
-import 'ui/views/home/home_view.dart' deferred as home;
+import 'core/constants/theme_constants.dart';
+import 'core/controllers/navigation/navigation_controller.dart';
+import 'ui/views/navigation/navigation_view.dart' deferred as navigation;
 
 void main() {
   setPathUrlStrategy();
   WidgetsFlutterBinding.ensureInitialized();
-  Get.put(HomeController());
+  Get.put(NavigationController());
   runApp(const MyApp());
 }
 
@@ -35,7 +35,7 @@ class _CustomMaterialAppState extends State<CustomMaterialApp> {
   Widget build(BuildContext context) => FutureBuilder(
         future: Future.wait([
           responsive_framework.loadLibrary(),
-          home.loadLibrary(),
+          navigation.loadLibrary(),
         ]),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.done) {
@@ -68,14 +68,10 @@ class _CustomMaterialAppState extends State<CustomMaterialApp> {
               ),
               title: appName,
               debugShowCheckedModeBanner: false,
-              theme: ThemeData(
-                colorScheme: const ColorScheme.light().copyWith(
-                  primary: kPrimaryColor,
-                ),
-                textTheme: GoogleFonts.poppinsTextTheme(),
-                scaffoldBackgroundColor: kWhiteColor,
-              ),
-              home: home.HomeView(),
+              theme: lightTheme,
+              darkTheme: darkTheme,
+              themeMode: ThemeMode.dark,
+              home: navigation.NavigationView(),
             );
           }
           return const SizedBox.shrink();
