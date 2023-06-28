@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../widgets/portfolio_base_card.dart';
+import '../../widgets/portfolio_base_card/portfolio_base_card.dart';
 import 'components/portfolio_body.dart';
 
 class PortfolioView extends StatefulWidget {

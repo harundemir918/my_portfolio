@@ -6,13 +6,16 @@ import 'package:url_strategy/url_strategy.dart';
 
 import 'core/constants/constants.dart';
 import 'core/constants/theme_constants.dart';
+import 'core/controllers/color/color_controller.dart';
 import 'core/controllers/navigation/navigation_controller.dart';
 import 'ui/views/navigation/navigation_view.dart' deferred as navigation;
 
 void main() {
   setPathUrlStrategy();
   WidgetsFlutterBinding.ensureInitialized();
-  Get.put(NavigationController());
+  Get
+    ..put(NavigationController())
+    ..put(ColorController());
   runApp(const MyApp());
 }
 

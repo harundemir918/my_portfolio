@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../widgets/portfolio_base_card.dart';
+import '../../widgets/portfolio_base_card/portfolio_base_card.dart';
 import 'components/resume_body.dart';
 
 class ResumeView extends StatefulWidget {
