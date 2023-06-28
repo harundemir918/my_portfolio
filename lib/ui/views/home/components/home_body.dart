@@ -25,11 +25,16 @@ class HomeBody extends StatelessWidget {
         child: Container(
           width: SizeUtils.getDynamicWidth(context, 0.1),
           height: SizeUtils.getDynamicHeight(context, 0.2),
-          padding: const EdgeInsets.only(left: kDefaultPadding * 10),
+          padding: EdgeInsets.only(
+              left: ResponsiveBreakpoints.of(context).isDesktop
+                  ? kDefaultPadding * 10
+                  : 0.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             // mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: ResponsiveBreakpoints.of(context).isDesktop
+                ? CrossAxisAlignment.start
+                : CrossAxisAlignment.center,
             children: [
               const HomeTitle(),
               const HomeDescription(),
