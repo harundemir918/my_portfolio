@@ -19,28 +19,18 @@ class ResumeListCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Container(
         margin: const EdgeInsets.symmetric(vertical: kDefaultPadding),
-        decoration: BoxDecoration(
-          color: kWhiteColor,
-          borderRadius: BorderRadius.circular(8.0),
-          boxShadow: const [
-            BoxShadow(
-              color: kShadowColor,
-              blurRadius: 10,
-              spreadRadius: 5,
-              offset: Offset(1, 1),
-            ),
-          ],
+        padding: const EdgeInsets.all(kDefaultPadding * 2),
+        decoration: const BoxDecoration(
+          border: Border(left: BorderSide(width: 1, color: kPrimaryColor)),
         ),
-        child: Padding(
-          padding: const EdgeInsets.all(kDefaultPadding),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              ResumeListCardTitle(resumeModel: resumeModel),
-              ResumeListCardDetails(resumeModel: resumeModel),
-              ResumeListCardDescription(resumeModel: resumeModel),
-            ],
-          ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            ResumeListCardTitle(resumeModel: resumeModel),
+            ResumeListCardDetails(resumeModel: resumeModel),
+            ResumeListCardDescription(resumeModel: resumeModel),
+          ],
         ),
       );
 }

@@ -46,7 +46,7 @@ class ResumeListCardDetails extends StatelessWidget {
                             child: VerticalDivider(
                               thickness: 1,
                               width: 5,
-                              color: Colors.black38,
+                              color: kWhiteColor,
                             ),
                           ),
                         ],

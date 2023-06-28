@@ -23,12 +23,6 @@ class ResumeBottomSection extends StatelessWidget {
           if (snapshot.connectionState == ConnectionState.done) {
             return Container(
               padding: const EdgeInsets.all(kDefaultPadding * 2),
-              decoration: const BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.vertical(
-                  bottom: Radius.circular(kDefaultPadding),
-                ),
-              ),
               child: responsive_framework.ResponsiveRowColumn(
                 rowMainAxisAlignment: MainAxisAlignment.spaceBetween,
                 rowCrossAxisAlignment: CrossAxisAlignment.start,
