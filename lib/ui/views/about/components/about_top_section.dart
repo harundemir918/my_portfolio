@@ -28,8 +28,8 @@ class AboutTopSection extends StatelessWidget {
               padding: EdgeInsets.symmetric(
                 horizontal:
                     responsive_framework.ResponsiveBreakpoints.of(context)
-                            .isDesktop
-                        ? kDefaultPadding * 4
+                            .smallerThan(responsive_framework.DESKTOP)
+                        ? kDefaultPadding * 2
                         : 0.0,
                 vertical: kDefaultPadding * 4,
               ),
@@ -42,12 +42,19 @@ class AboutTopSection extends StatelessWidget {
                 // ignore: prefer_const_literals_to_create_immutables
                 children: [
                   responsive_framework.ResponsiveRowColumnItem(
+                    rowFlex: 3,
                     child: const AboutImage(),
                   ),
                   responsive_framework.ResponsiveRowColumnItem(
-                    rowFlex: 2,
+                    rowFlex: 1,
+                    child: const SizedBox.shrink(),
+                  ),
+                  responsive_framework.ResponsiveRowColumnItem(
+                    rowFlex: 3,
                     child: const Padding(
-                      padding: EdgeInsets.all(kDefaultPadding * 2),
+                      padding: EdgeInsets.symmetric(
+                        vertical: kDefaultPadding * 2,
+                      ),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
