@@ -8,10 +8,11 @@ import 'package:responsive_framework/responsive_framework.dart'
     deferred as responsive_framework;
 
 import '../../../../core/constants/constants.dart';
-import 'about_contact_options.dart';
+import '../../../../core/utils/size_utils.dart';
 import 'about_description.dart';
 import 'about_image.dart';
-import 'about_title.dart';
+import 'about_info_bottom.dart';
+import 'about_info_summary.dart';
 
 class AboutTopSection extends StatelessWidget {
   const AboutTopSection({super.key});
@@ -28,12 +29,6 @@ class AboutTopSection extends StatelessWidget {
                 horizontal: kDefaultPadding * 2,
                 vertical: kDefaultPadding * 4,
               ),
-              decoration: const BoxDecoration(
-                color: kPrimaryColor,
-                borderRadius: BorderRadius.vertical(
-                  top: Radius.circular(kDefaultPadding),
-                ),
-              ),
               child: responsive_framework.ResponsiveRowColumn(
                 rowMainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 layout: responsive_framework.ResponsiveBreakpoints.of(context)
@@ -46,13 +41,20 @@ class AboutTopSection extends StatelessWidget {
                     child: const AboutImage(),
                   ),
                   responsive_framework.ResponsiveRowColumnItem(
-                    child: const Column(
-                      children: [
-                        AboutTitle(),
-                        AboutDescription(),
-                        SizedBox(height: kDefaultPadding * 2),
-                        AboutContactOptions(),
-                      ],
+                    rowFlex: 2,
+                    child: Container(
+                      width: SizeUtils.getDynamicWidth(context, 0.5),
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: kDefaultPadding * 2,
+                      ),
+                      child: const Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          AboutDescription(),
+                          AboutInfoSummary(),
+                          AboutInfoBottom(),
+                        ],
+                      ),
                     ),
                   ),
                 ],

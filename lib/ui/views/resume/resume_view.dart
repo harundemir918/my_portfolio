@@ -14,6 +14,7 @@ class _ResumeViewState extends State<ResumeView> {
   @override
   Widget build(BuildContext context) => const SingleChildScrollView(
         child: PortfolioBaseCard(
+          title: "RESUME",
           cardBody: ResumeBody(),
         ),
       );

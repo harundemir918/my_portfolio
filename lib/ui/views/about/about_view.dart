@@ -19,6 +19,7 @@ class _AboutViewState extends State<AboutView> {
   @override
   Widget build(BuildContext context) => const SingleChildScrollView(
         child: PortfolioBaseCard(
+          title: "ABOUT",
           cardBody: AboutBody(),
         ),
       );

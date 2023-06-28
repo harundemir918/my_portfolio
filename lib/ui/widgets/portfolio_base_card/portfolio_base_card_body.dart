@@ -8,20 +8,30 @@ import 'package:get/get.dart';
 
 import '../../../core/base/base_controller.dart';
 import '../../../core/constants/constants.dart';
+import '../../../core/utils/size_utils.dart';
+import 'portfolio_base_card_title.dart';
 
 class PortfolioBaseCardBody extends StatelessWidget {
+  final String title;
   final Widget cardBody;
 
-  const PortfolioBaseCardBody({required this.cardBody, super.key});
+  const PortfolioBaseCardBody({
+    required this.title,
+    required this.cardBody,
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) => Obx(
         () => AnimatedContainer(
           duration: const Duration(seconds: 1),
           curve: Curves.linear,
-          margin: const EdgeInsets.all(kDefaultPadding * 2),
+          margin: EdgeInsets.symmetric(
+            horizontal: SizeUtils.getDynamicWidth(context, 0.1),
+            vertical: kDefaultPadding * 2,
+          ),
           decoration: BoxDecoration(
-            color: kBlackColor.withOpacity(0.5),
+            color: kBlackColor.withOpacity(0.8),
             borderRadius: BorderRadius.circular(kDefaultPadding),
             boxShadow: [
               BoxShadow(
@@ -32,7 +42,12 @@ class PortfolioBaseCardBody extends StatelessWidget {
               ),
             ],
           ),
-          child: cardBody,
+          child: Column(
+            children: [
+              PortfolioBaseCardTitle(title: title),
+              cardBody,
+            ],
+          ),
         ),
       );
 }

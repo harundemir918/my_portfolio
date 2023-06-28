@@ -14,6 +14,7 @@ class _PortfolioViewState extends State<PortfolioView> {
   @override
   Widget build(BuildContext context) => const SingleChildScrollView(
         child: PortfolioBaseCard(
+          title: "PORTFOLIO",
           cardBody: PortfolioBody(),
         ),
       );
