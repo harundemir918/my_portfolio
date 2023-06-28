@@ -18,7 +18,7 @@ class ResumeListCardDescription extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: kDefaultPadding / 2),
         child: Text(
           resumeModel.description,
-          textAlign: TextAlign.justify,
+          maxLines: 2,
         ),
       );
 }

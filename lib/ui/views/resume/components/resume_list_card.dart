@@ -13,11 +13,17 @@ import 'resume_list_card_title.dart';
 
 class ResumeListCard extends StatelessWidget {
   final ResumeModel resumeModel;
+  final BoxConstraints constraints;
 
-  const ResumeListCard({required this.resumeModel, super.key});
+  const ResumeListCard({
+    required this.resumeModel,
+    required this.constraints,
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) => Container(
+        width: constraints.maxWidth,
         margin: const EdgeInsets.symmetric(vertical: kDefaultPadding),
         padding: const EdgeInsets.all(kDefaultPadding * 2),
         decoration: const BoxDecoration(

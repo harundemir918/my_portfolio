@@ -11,7 +11,6 @@ import '../../../../core/constants/constants.dart';
 import '../../../../core/utils/size_utils.dart';
 import 'about_description.dart';
 import 'about_image.dart';
-import 'about_info_bottom.dart';
 import 'about_info_summary.dart';
 
 class AboutTopSection extends StatelessWidget {
@@ -25,8 +24,13 @@ class AboutTopSection extends StatelessWidget {
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.done) {
             return Container(
-              padding: const EdgeInsets.symmetric(
-                horizontal: kDefaultPadding * 2,
+              width: SizeUtils.getWidth(context),
+              padding: EdgeInsets.symmetric(
+                horizontal:
+                    responsive_framework.ResponsiveBreakpoints.of(context)
+                            .isDesktop
+                        ? kDefaultPadding * 4
+                        : 0.0,
                 vertical: kDefaultPadding * 4,
               ),
               child: responsive_framework.ResponsiveRowColumn(
@@ -42,17 +46,13 @@ class AboutTopSection extends StatelessWidget {
                   ),
                   responsive_framework.ResponsiveRowColumnItem(
                     rowFlex: 2,
-                    child: Container(
-                      width: SizeUtils.getDynamicWidth(context, 0.5),
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: kDefaultPadding * 2,
-                      ),
-                      child: const Column(
+                    child: const Padding(
+                      padding: EdgeInsets.all(kDefaultPadding * 2),
+                      child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           AboutDescription(),
                           AboutInfoSummary(),
-                          AboutInfoBottom(),
                         ],
                       ),
                     ),

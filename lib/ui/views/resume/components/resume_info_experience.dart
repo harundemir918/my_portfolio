@@ -14,18 +14,26 @@ class ResumeInfoExperience extends StatelessWidget {
   const ResumeInfoExperience({super.key});
 
   @override
-  Widget build(BuildContext context) => Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const ResumeInfoTitle(title: "Experience"),
-          const SizedBox(height: kDefaultPadding * 2),
-          Column(
-            children: resumeExperienceList
-                .map(
-                  (exp) => ResumeListCard(resumeModel: exp),
-                )
-                .toList(),
+  Widget build(BuildContext context) => LayoutBuilder(
+        builder: (context, constraints) => SizedBox(
+          width: constraints.maxWidth,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const ResumeInfoTitle(title: "Experience"),
+              const SizedBox(height: kDefaultPadding * 2),
+              Column(
+                children: resumeExperienceList
+                    .map(
+                      (exp) => ResumeListCard(
+                        resumeModel: exp,
+                        constraints: constraints,
+                      ),
+                    )
+                    .toList(),
+              ),
+            ],
           ),
-        ],
+        ),
       );
 }

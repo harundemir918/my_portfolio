@@ -14,21 +14,16 @@ class ResponsiveDesktopAppBar extends StatelessWidget {
   const ResponsiveDesktopAppBar({super.key});
 
   @override
-  Widget build(BuildContext context) => AppBar(
-        title: Padding(
-          padding: EdgeInsets.only(
-            left: SizeUtils.getDynamicWidth(context, 0.08),
-          ),
-          child: const ResponsiveAppBarTitle(),
+  Widget build(BuildContext context) => Padding(
+        padding: EdgeInsets.symmetric(
+          horizontal: SizeUtils.getDynamicWidth(context, 0.13),
         ),
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        actions: [
-          Padding(
-            padding: EdgeInsets.only(
-              right: SizeUtils.getDynamicWidth(context, 0.08),
-            ),
-            child: Row(
+        child: AppBar(
+          title: const ResponsiveAppBarTitle(),
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          actions: [
+            Row(
               children: pageList
                   .map(
                     (item) => ResponsiveAppBarActionsItem(
@@ -38,7 +33,7 @@ class ResponsiveDesktopAppBar extends StatelessWidget {
                   )
                   .toList(),
             ),
-          ),
-        ],
+          ],
+        ),
       );
 }
