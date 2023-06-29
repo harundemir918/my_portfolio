@@ -4,8 +4,7 @@ Date: 29.06.2023
 */
 
 import 'package:flutter/material.dart';
-
-import '../../../../core/base/base_controller.dart';
+import 'package:webview_flutter_platform_interface/webview_flutter_platform_interface.dart';
 
 class NavigationBackground extends StatefulWidget {
   const NavigationBackground({super.key});
@@ -15,13 +14,16 @@ class NavigationBackground extends StatefulWidget {
 }
 
 class _NavigationBackgroundState extends State<NavigationBackground> {
-  @override
-  void initState() {
-    BaseController.navigationController.initBackgroundGif(context);
-    super.initState();
-  }
+  final PlatformWebViewController _controller = PlatformWebViewController(
+    const PlatformWebViewControllerCreationParams(),
+  )..loadRequest(
+      LoadRequestParams(
+        uri: Uri.parse('https://harundemir.org/assets/assets/background.html'),
+      ),
+    );
 
   @override
-  Widget build(BuildContext context) =>
-      const HtmlElementView(viewType: "background");
+  Widget build(BuildContext context) => PlatformWebViewWidget(
+        PlatformWebViewWidgetCreationParams(controller: _controller),
+      ).build(context);
 }

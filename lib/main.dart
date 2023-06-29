@@ -3,6 +3,8 @@ import 'package:get/get.dart';
 import 'package:responsive_framework/responsive_framework.dart'
     deferred as responsive_framework;
 import 'package:url_strategy/url_strategy.dart';
+import 'package:webview_flutter_platform_interface/webview_flutter_platform_interface.dart';
+import 'package:webview_flutter_web/webview_flutter_web.dart';
 
 import 'core/constants/constants.dart';
 import 'core/constants/theme_constants.dart';
@@ -11,6 +13,7 @@ import 'core/controllers/navigation/navigation_controller.dart';
 import 'ui/views/navigation/navigation_view.dart' deferred as navigation;
 
 void main() {
+  WebViewPlatform.instance = WebWebViewPlatform();
   setPathUrlStrategy();
   WidgetsFlutterBinding.ensureInitialized();
   Get
