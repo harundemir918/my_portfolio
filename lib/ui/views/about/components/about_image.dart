@@ -31,9 +31,8 @@ class AboutImage extends StatelessWidget {
                 fit: BoxFit.fitWidth,
               ),
             );
-          } else {
-            return const SizedBox.shrink();
           }
+          return const SizedBox.shrink();
         },
       );
 }

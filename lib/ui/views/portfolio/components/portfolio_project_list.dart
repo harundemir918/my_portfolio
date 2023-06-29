@@ -48,9 +48,8 @@ class _PortfolioProjectListState extends State<PortfolioProjectList> {
                 image: portfolioList[index].mediaUrls.first,
               ),
             );
-          } else {
-            return const SizedBox.shrink();
           }
+          return const SizedBox.shrink();
         },
       );
 }

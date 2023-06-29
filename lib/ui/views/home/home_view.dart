@@ -7,16 +7,11 @@ import 'package:flutter/material.dart';
 
 import 'components/home_body.dart';
 
-class HomeView extends StatefulWidget {
+class HomeView extends StatelessWidget {
   const HomeView({super.key});
 
   @override
-  State<HomeView> createState() => _HomeViewState();
-}
-
-class _HomeViewState extends State<HomeView> {
-  @override
-  Widget build(BuildContext context) => const Scaffold(
-        body: HomeBody(),
+  Widget build(BuildContext context) => const SingleChildScrollView(
+        child: HomeBody(),
       );
 }

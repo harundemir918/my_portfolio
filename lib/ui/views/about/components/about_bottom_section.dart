@@ -56,9 +56,8 @@ class AboutBottomSection extends StatelessWidget {
                 ],
               ),
             );
-          } else {
-            return const SizedBox.shrink();
           }
+          return const SizedBox.shrink();
         },
       );
 }
