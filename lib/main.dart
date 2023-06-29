@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gif/flutter_gif.dart';
 import 'package:get/get.dart';
 import 'package:responsive_framework/responsive_framework.dart'
     deferred as responsive_framework;
@@ -37,6 +38,7 @@ class _CustomMaterialAppState extends State<CustomMaterialApp> {
   @override
   Widget build(BuildContext context) => FutureBuilder(
         future: Future.wait([
+          fetchGif(const AssetImage("assets/images/background.gif")),
           responsive_framework.loadLibrary(),
           navigation.loadLibrary(),
         ]),

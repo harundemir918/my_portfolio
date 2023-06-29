@@ -4,7 +4,7 @@ Date: 29.06.2023
 */
 
 import 'package:flutter/material.dart';
-import 'package:gif/gif.dart';
+import 'package:flutter_gif/flutter_gif.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
 import '../../../../core/base/base_controller.dart';
@@ -23,19 +23,33 @@ class _NavigationBackgroundState extends State<NavigationBackground>
     with SingleTickerProviderStateMixin {
   @override
   void initState() {
-    BaseController.navigationController.initGifController(this);
+    _initGif();
     super.initState();
   }
 
+  void _initGif() async {
+    await BaseController.navigationController.initGifController(this);
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      BaseController.navigationController.repeatGif();
+    });
+  }
+
   @override
-  Widget build(BuildContext context) => Gif(
-        image: const AssetImage("assets/images/background.gif"),
-        controller: BaseController.navigationController.gifController.value,
-        autostart: Autostart.loop,
-        fit: ResponsiveBreakpoints.of(context).isDesktop
-            ? BoxFit.fill
-            : BoxFit.fitHeight,
-        width: SizeUtils.getWidth(context),
-        height: SizeUtils.getHeight(context),
+  void dispose() {
+    BaseController.navigationController.gifController.value?.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) => SizedBox(
+        child: GifImage(
+          image: const AssetImage("assets/images/background.gif"),
+          controller: BaseController.navigationController.gifController.value!,
+          fit: ResponsiveBreakpoints.of(context).isDesktop
+              ? BoxFit.fill
+              : BoxFit.fitHeight,
+          width: SizeUtils.getWidth(context),
+          height: SizeUtils.getHeight(context),
+        ),
       );
 }
