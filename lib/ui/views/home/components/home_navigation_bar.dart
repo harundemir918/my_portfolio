@@ -5,8 +5,8 @@ Date: 28.06.2023
 
 import 'package:flutter/material.dart';
 
-import '../../../../core/base/base_controller.dart';
 import '../../../../core/constants/constants.dart';
+import 'home_navigation_bar_item.dart';
 
 class HomeNavigationBar extends StatelessWidget {
   const HomeNavigationBar({
@@ -21,14 +21,7 @@ class HomeNavigationBar extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: pageList
               .map(
-                (page) => TextButton(
-                  onPressed: () => BaseController.navigationController
-                      .changePage(page.index),
-                  child: Text(
-                    page.title,
-                    style: Theme.of(context).textTheme.titleMedium,
-                  ),
-                ),
+                (page) => HomeNavigationBarItem(page: page),
               )
               .toList(),
         ),
