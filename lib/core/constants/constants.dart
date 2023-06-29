@@ -13,7 +13,7 @@ import '../models/page_model.dart';
 
 const String appName = "Harun Demir";
 
-const Color kPrimaryColor = Color(0xFF18D26E);
+const Color kPrimaryColor = Color(0xFFEFA4A0);
 const Color kWhiteColor = Colors.white;
 const Color kBlackColor = Colors.black;
 const Color kShadowColor = Colors.black12;

@@ -31,7 +31,7 @@ class PortfolioBaseCardBody extends StatelessWidget {
             vertical: kDefaultPadding * 2,
           ),
           decoration: BoxDecoration(
-            color: kBlackColor.withOpacity(0.8),
+            color: kWhiteColor.withOpacity(0.8),
             borderRadius: BorderRadius.circular(kDefaultPadding),
             boxShadow: [
               BoxShadow(

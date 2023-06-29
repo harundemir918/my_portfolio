@@ -28,7 +28,7 @@ class ColorController extends GetxController {
       random.nextInt(256),
       random.nextInt(256),
       random.nextInt(256),
-      1,
+      0.5,
     );
   }
 }

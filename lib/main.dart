@@ -73,7 +73,7 @@ class _CustomMaterialAppState extends State<CustomMaterialApp> {
               debugShowCheckedModeBanner: false,
               theme: lightTheme,
               darkTheme: darkTheme,
-              themeMode: ThemeMode.dark,
+              themeMode: ThemeMode.light,
               home: navigation.NavigationView(),
             );
           }

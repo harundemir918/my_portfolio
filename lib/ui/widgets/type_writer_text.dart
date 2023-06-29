@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../core/constants/constants.dart';
 import '../../core/constants/resume_constants.dart';
 
 class TypeWriterText extends StatefulWidget {
@@ -108,14 +107,12 @@ class _TypeWriterTextState extends State<TypeWriterText> {
           Text(
             _typedText,
             style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                  color: kWhiteColor,
                   fontWeight: FontWeight.w400,
                 ),
           ),
           Text(
             "|",
             style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                  color: kWhiteColor,
                   fontWeight: FontWeight.w400,
                 ),
           ),

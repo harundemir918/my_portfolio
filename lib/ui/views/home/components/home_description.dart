@@ -24,7 +24,7 @@ class HomeDescription extends StatelessWidget {
               TextSpan(
                 text: " Flutter developer ",
                 style: TextStyle(
-                  color: Colors.green,
+                  color: kPrimaryColor,
                 ),
               ),
               TextSpan(text: "from Turkiye"),
