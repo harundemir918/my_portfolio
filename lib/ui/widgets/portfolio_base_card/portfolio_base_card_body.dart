@@ -28,7 +28,7 @@ class PortfolioBaseCardBody extends StatelessWidget {
           curve: Curves.linear,
           margin: EdgeInsets.symmetric(
             horizontal: SizeUtils.getDynamicWidth(context, 0.15),
-            vertical: kDefaultPadding * 2,
+            vertical: kToolbarHeight * 1.5,
           ),
           decoration: BoxDecoration(
             color: kWhiteColor.withOpacity(0.8),

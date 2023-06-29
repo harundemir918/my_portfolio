@@ -35,18 +35,22 @@ class _PortfolioProjectListState extends State<PortfolioProjectList> {
         ]),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.done) {
-            return GridView.builder(
+            return GridView(
+              shrinkWrap: true,
               padding: EdgeInsets.zero,
-              itemCount: portfolioList.length,
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 childAspectRatio: 2 / 3,
                 crossAxisCount: _getGridViewCrossAxisCount(),
                 mainAxisSpacing: kDefaultPadding / 2,
                 crossAxisSpacing: kDefaultPadding / 2,
               ),
-              itemBuilder: (context, index) => PortfolioProjectListCard(
-                image: portfolioList[index].mediaUrls.first,
-              ),
+              children: portfolioList
+                  .map(
+                    (portfolio) => PortfolioProjectListCard(
+                      image: portfolio.mediaUrls.first,
+                    ),
+                  )
+                  .toList(),
             );
           }
           return const SizedBox.shrink();

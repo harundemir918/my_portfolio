@@ -14,13 +14,13 @@ class ResponsiveDesktopAppBar extends StatelessWidget {
   const ResponsiveDesktopAppBar({super.key});
 
   @override
-  Widget build(BuildContext context) => Padding(
+  Widget build(BuildContext context) => Container(
+        color: Theme.of(context).scaffoldBackgroundColor,
         padding: EdgeInsets.symmetric(
           horizontal: SizeUtils.getDynamicWidth(context, 0.13),
         ),
         child: AppBar(
           title: const ResponsiveAppBarTitle(),
-          backgroundColor: Colors.transparent,
           elevation: 0,
           actions: pageList
               .map(

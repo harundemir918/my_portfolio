@@ -5,6 +5,7 @@ Date: 27.06.2023
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:pointer_interceptor/pointer_interceptor.dart';
 
 import '../../../../core/base/base_controller.dart';
 import '../../../../core/constants/constants.dart';
@@ -23,9 +24,11 @@ class NavigationBody extends StatelessWidget {
           children: [
             const NavigationBackground(),
             Obx(
-              () =>
-                  pageList[BaseController.navigationController.pageIndex.value]
-                      .page,
+              () => PointerInterceptor(
+                child: pageList[
+                        BaseController.navigationController.pageIndex.value]
+                    .page,
+              ),
             ),
           ],
         ),

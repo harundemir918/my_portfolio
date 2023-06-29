@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 
 import '../../ui/views/about/about_view.dart';
 import '../../ui/views/home/home_view.dart';
+import '../../ui/views/portfolio/portfolio_view.dart';
 import '../../ui/views/resume/resume_view.dart';
 import '../models/page_model.dart';
 
@@ -45,9 +46,9 @@ List<PageModel> pageList = [
     title: "Resume",
     page: const ResumeView(),
   ),
-  // PageModel(
-  //   index: 3,
-  //   title: "Portfolio",
-  //   page: const PortfolioView(),
-  // ),
+  PageModel(
+    index: 3,
+    title: "Portfolio",
+    page: const PortfolioView(),
+  ),
 ];

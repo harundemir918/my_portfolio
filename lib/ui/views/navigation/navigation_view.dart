@@ -16,6 +16,7 @@ class _NavigationViewState extends State<NavigationView> {
   @override
   Widget build(BuildContext context) => Scaffold(
         appBar: const NavigationAppBar(),
+        extendBodyBehindAppBar: true,
         endDrawer: !ResponsiveBreakpoints.of(context).isDesktop
             ? const DrawerWidget()
             : null,
