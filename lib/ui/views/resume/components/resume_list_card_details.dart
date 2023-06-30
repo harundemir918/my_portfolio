@@ -20,11 +20,11 @@ class ResumeListCardDetails extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              resumeModel.type == ResumeType.education
+              resumeModel.type != ResumeType.experience
                   ? resumeModel.title
                   : resumeModel.location,
             ),
-            Text(resumeModel.date),
+            if (resumeModel.date.isNotEmpty) Text(resumeModel.date),
           ],
         ),
       );

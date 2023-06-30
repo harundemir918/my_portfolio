@@ -16,9 +16,6 @@ class ResumeListCardDescription extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Padding(
         padding: const EdgeInsets.symmetric(vertical: kDefaultPadding / 2),
-        child: Text(
-          resumeModel.description,
-          maxLines: 2,
-        ),
+        child: Text(resumeModel.description),
       );
 }

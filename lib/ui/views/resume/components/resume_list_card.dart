@@ -34,7 +34,8 @@ class ResumeListCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             ResumeListCardTitle(resumeModel: resumeModel),
-            ResumeListCardDetails(resumeModel: resumeModel),
+            if (resumeModel.type != ResumeType.language)
+              ResumeListCardDetails(resumeModel: resumeModel),
             ResumeListCardDescription(resumeModel: resumeModel),
           ],
         ),

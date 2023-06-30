@@ -10,6 +10,7 @@ import 'package:responsive_framework/responsive_framework.dart'
 import '../../../../core/constants/constants.dart';
 import 'resume_info_education.dart';
 import 'resume_info_experience.dart';
+import 'resume_info_languages.dart';
 
 class ResumeBody extends StatelessWidget {
   const ResumeBody({super.key});
@@ -36,7 +37,12 @@ class ResumeBody extends StatelessWidget {
                   responsive_framework.ResponsiveRowColumnItem(
                     rowFlex: 5,
                     columnFlex: 1,
-                    child: const ResumeInfoEducation(),
+                    child: const Column(
+                      children: [
+                        ResumeInfoEducation(),
+                        ResumeInfoLanguages(),
+                      ],
+                    ),
                   ),
                   responsive_framework.ResponsiveRowColumnItem(
                     rowFlex: 1,

@@ -3,7 +3,7 @@ Author: Harun Demir
 Date: 25.12.2022
 */
 
-enum ResumeType { education, experience }
+enum ResumeType { education, experience, language }
 
 class ResumeModel {
   final ResumeType type;
