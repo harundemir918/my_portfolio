@@ -37,12 +37,7 @@ class ResumeBody extends StatelessWidget {
                   responsive_framework.ResponsiveRowColumnItem(
                     rowFlex: 5,
                     columnFlex: 1,
-                    child: const Column(
-                      children: [
-                        ResumeInfoEducation(),
-                        ResumeInfoLanguages(),
-                      ],
-                    ),
+                    child: const ResumeInfoExperience(),
                   ),
                   responsive_framework.ResponsiveRowColumnItem(
                     rowFlex: 1,
@@ -52,7 +47,12 @@ class ResumeBody extends StatelessWidget {
                   responsive_framework.ResponsiveRowColumnItem(
                     rowFlex: 5,
                     columnFlex: 1,
-                    child: const ResumeInfoExperience(),
+                    child: const Column(
+                      children: [
+                        ResumeInfoEducation(),
+                        ResumeInfoLanguages(),
+                      ],
+                    ),
                   ),
                 ],
               ),
