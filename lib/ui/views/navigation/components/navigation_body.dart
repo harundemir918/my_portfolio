@@ -20,7 +20,9 @@ class NavigationBody extends StatelessWidget {
         width: SizeUtils.getWidth(context),
         height: SizeUtils.getHeight(context),
         child: Stack(
-          alignment: Alignment.topCenter,
+          alignment: BaseController.navigationController.pageIndex.value == 0
+              ? Alignment.center
+              : Alignment.topCenter,
           children: [
             const NavigationBackground(),
             Obx(

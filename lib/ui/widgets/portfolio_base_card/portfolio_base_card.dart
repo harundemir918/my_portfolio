@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../../core/base/base_controller.dart';
 import 'portfolio_base_card_body.dart';
 
 class PortfolioBaseCard extends StatefulWidget {
@@ -18,12 +17,6 @@ class PortfolioBaseCard extends StatefulWidget {
 }
 
 class _PortfolioBaseCardState extends State<PortfolioBaseCard> {
-  @override
-  void initState() {
-    BaseController.colorController.initTimer();
-    super.initState();
-  }
-
   @override
   Widget build(BuildContext context) => PortfolioBaseCardBody(
         title: widget.title,

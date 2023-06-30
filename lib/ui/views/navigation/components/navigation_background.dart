@@ -18,7 +18,8 @@ class _NavigationBackgroundState extends State<NavigationBackground> {
     const PlatformWebViewControllerCreationParams(),
   )..loadRequest(
       LoadRequestParams(
-        uri: Uri.parse('https://harundemir.org/assets/assets/background.html'),
+        uri: Uri.parse(
+            'https://harundemir.org/assets/assets/html/background.html'),
       ),
     );
 

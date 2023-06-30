@@ -15,6 +15,12 @@ class ColorController extends GetxController {
   Rx<Color> shadowColor = kShadowColor.obs;
   Rxn<Timer> timer = Rxn<Timer>();
 
+  @override
+  void onInit() {
+    initTimer();
+    super.onInit();
+  }
+
   void initTimer() {
     timer.value ??= Timer.periodic(
       const Duration(seconds: 1),
