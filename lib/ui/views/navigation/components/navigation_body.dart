@@ -16,23 +16,23 @@ class NavigationBody extends StatelessWidget {
   const NavigationBody({super.key});
 
   @override
-  Widget build(BuildContext context) => SizedBox(
-        width: SizeUtils.getWidth(context),
-        height: SizeUtils.getHeight(context),
-        child: Stack(
-          alignment: BaseController.navigationController.pageIndex.value == 0
-              ? Alignment.center
-              : Alignment.topCenter,
-          children: [
-            const NavigationBackground(),
-            Obx(
-              () => PointerInterceptor(
+  Widget build(BuildContext context) => Stack(
+        alignment: BaseController.navigationController.pageIndex.value == 0
+            ? Alignment.center
+            : Alignment.topCenter,
+        children: [
+          const NavigationBackground(),
+          Obx(
+            () => PointerInterceptor(
+              child: SizedBox(
+                width: SizeUtils.getWidth(context),
+                height: SizeUtils.getHeight(context),
                 child: pageList[
                         BaseController.navigationController.pageIndex.value]
                     .page,
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       );
 }
