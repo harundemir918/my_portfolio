@@ -40,8 +40,8 @@ class _CustomMaterialAppState extends State<CustomMaterialApp> {
   @override
   Widget build(BuildContext context) => FutureBuilder(
         future: Future.wait([
-          responsive_framework.loadLibrary(),
           navigation.loadLibrary(),
+          responsive_framework.loadLibrary(),
         ]),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.done) {
