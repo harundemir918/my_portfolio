@@ -27,52 +27,57 @@ class HomeBody extends StatelessWidget {
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.done) {
             return Obx(
-              () => Align(
-                alignment:
-                    responsive_framework.ResponsiveBreakpoints.of(context)
-                            .isDesktop
-                        ? Alignment.centerLeft
-                        : Alignment.center,
-                child: AnimatedContainer(
-                  duration: const Duration(seconds: 1),
-                  curve: Curves.linear,
-                  // width: SizeUtils.getDynamicWidth(context, 0.5),
-                  // height: SizeUtils.getDynamicHeight(context, 0.5),
-                  margin: EdgeInsets.symmetric(
-                    horizontal:
-                        responsive_framework.ResponsiveBreakpoints.of(context)
-                                .isDesktop
-                            ? SizeUtils.getDynamicWidth(context, 0.05)
-                            : kDefaultPadding * 2,
-                  ),
-                  padding: const EdgeInsets.all(kDefaultPadding),
-                  decoration: BoxDecoration(
-                    color: kWhiteColor.withOpacity(0.8),
-                    borderRadius: BorderRadius.circular(kDefaultPadding),
-                    boxShadow: [
-                      BoxShadow(
-                        color: BaseController.colorController.shadowColor.value,
-                        blurRadius: 10,
-                        spreadRadius: 5,
-                        offset: const Offset(1, 1),
-                      ),
-                    ],
-                  ),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment:
-                        responsive_framework.ResponsiveBreakpoints.of(context)
-                                .isDesktop
-                            ? CrossAxisAlignment.start
-                            : CrossAxisAlignment.center,
-                    children: [
-                      const HomeTitle(),
-                      const HomeDescription(),
-                      if (responsive_framework.ResponsiveBreakpoints.of(context)
-                          .isDesktop)
-                        const HomeNavigationBar(),
-                      const HomeContactOptions(),
-                    ],
+              () => SizedBox(
+                width: SizeUtils.getWidth(context),
+                height: SizeUtils.getHeight(context),
+                child: Align(
+                  alignment:
+                      responsive_framework.ResponsiveBreakpoints.of(context)
+                              .isDesktop
+                          ? Alignment.centerLeft
+                          : Alignment.center,
+                  child: AnimatedContainer(
+                    duration: const Duration(seconds: 1),
+                    curve: Curves.linear,
+                    margin: EdgeInsets.symmetric(
+                      horizontal:
+                          responsive_framework.ResponsiveBreakpoints.of(context)
+                                  .isDesktop
+                              ? SizeUtils.getDynamicWidth(context, 0.05)
+                              : kDefaultPadding * 2,
+                    ),
+                    padding: const EdgeInsets.all(kDefaultPadding),
+                    decoration: BoxDecoration(
+                      color: kWhiteColor.withOpacity(0.8),
+                      borderRadius: BorderRadius.circular(kDefaultPadding),
+                      boxShadow: [
+                        BoxShadow(
+                          color:
+                              BaseController.colorController.shadowColor.value,
+                          blurRadius: 10,
+                          spreadRadius: 5,
+                          offset: const Offset(1, 1),
+                        ),
+                      ],
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      mainAxisSize: MainAxisSize.min,
+                      crossAxisAlignment:
+                          responsive_framework.ResponsiveBreakpoints.of(context)
+                                  .isDesktop
+                              ? CrossAxisAlignment.start
+                              : CrossAxisAlignment.center,
+                      children: [
+                        const HomeTitle(),
+                        const HomeDescription(),
+                        if (responsive_framework.ResponsiveBreakpoints.of(
+                                context)
+                            .isDesktop)
+                          const HomeNavigationBar(),
+                        const HomeContactOptions(),
+                      ],
+                    ),
                   ),
                 ),
               ),
