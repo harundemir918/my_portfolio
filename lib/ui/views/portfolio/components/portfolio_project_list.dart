@@ -39,7 +39,7 @@ class _PortfolioProjectListState extends State<PortfolioProjectList> {
               shrinkWrap: true,
               padding: EdgeInsets.zero,
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                childAspectRatio: 2 / 3,
+                childAspectRatio: 3 / 2,
                 crossAxisCount: _getGridViewCrossAxisCount(),
                 mainAxisSpacing: kDefaultPadding / 2,
                 crossAxisSpacing: kDefaultPadding / 2,
@@ -47,7 +47,7 @@ class _PortfolioProjectListState extends State<PortfolioProjectList> {
               children: portfolioList
                   .map(
                     (portfolio) => PortfolioProjectListCard(
-                      image: portfolio.mediaUrls.first,
+                      portfolioModel: portfolio,
                     ),
                   )
                   .toList(),

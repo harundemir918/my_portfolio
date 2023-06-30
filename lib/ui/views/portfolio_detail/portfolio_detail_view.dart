@@ -8,12 +8,17 @@ import 'package:responsive_framework/responsive_framework.dart'
     deferred as responsive_framework;
 
 import '../../../core/constants/constants.dart';
-import '../../../core/constants/portfolio_constants.dart';
+import '../../../core/models/portfolio_model.dart';
 import '../../../core/utils/app_scroll_behavior.dart';
 import '../../../core/utils/size_utils.dart';
 
 class PortfolioDetailView extends StatelessWidget {
-  const PortfolioDetailView({Key? key}) : super(key: key);
+  final PortfolioModel portfolioModel;
+
+  const PortfolioDetailView({
+    required this.portfolioModel,
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) => FutureBuilder(
@@ -93,9 +98,9 @@ class PortfolioDetailView extends StatelessWidget {
         height: SizeUtils.getDynamicHeight(context, 0.5),
         child: PageView.builder(
           scrollBehavior: AppScrollBehavior(),
-          itemCount: portfolioList.first.mediaUrls.length,
+          itemCount: portfolioModel.mediaUrls.length,
           itemBuilder: (context, index) => _portfolioDetailSliderCard(
-            image: portfolioList.first.mediaUrls[index],
+            image: portfolioModel.mediaUrls[index],
           ),
         ),
       );
@@ -129,7 +134,7 @@ class PortfolioDetailView extends StatelessWidget {
           ),
           SingleChildScrollView(
             child: Row(
-              children: portfolioList.first.techStack
+              children: portfolioModel.techStack
                   .map(
                     (tech) => Container(
                       margin: const EdgeInsets.symmetric(
@@ -164,7 +169,7 @@ class PortfolioDetailView extends StatelessWidget {
               const SizedBox(
                 width: kDefaultPadding,
               ),
-              Flexible(child: Text(portfolioList.first.url)),
+              Flexible(child: Text(portfolioModel.url)),
             ],
           ),
           Row(
@@ -173,10 +178,10 @@ class PortfolioDetailView extends StatelessWidget {
               const SizedBox(
                 width: kDefaultPadding,
               ),
-              Text(portfolioList.first.date),
+              Text(portfolioModel.date),
             ],
           ),
-          Text(portfolioList.first.description),
+          Text(portfolioModel.description),
         ],
       );
 }

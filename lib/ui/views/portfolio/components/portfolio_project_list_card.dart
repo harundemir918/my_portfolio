@@ -5,12 +5,13 @@ Date: 27.06.2023
 
 import 'package:flutter/material.dart';
 
+import '../../../../core/models/portfolio_model.dart';
 import '../../portfolio_detail/portfolio_detail_view.dart';
 
 class PortfolioProjectListCard extends StatelessWidget {
-  final String image;
+  final PortfolioModel portfolioModel;
 
-  const PortfolioProjectListCard({required this.image, super.key});
+  const PortfolioProjectListCard({required this.portfolioModel, super.key});
 
   @override
   Widget build(BuildContext context) => TextButton(
@@ -21,12 +22,14 @@ class PortfolioProjectListCard extends StatelessWidget {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => const PortfolioDetailView(),
+              builder: (context) => PortfolioDetailView(
+                portfolioModel: portfolioModel,
+              ),
             ),
           );
         },
         child: SizedBox(
-          child: Image.network(image),
+          child: Image.network(portfolioModel.mediaUrls.first),
         ),
       );
 }
