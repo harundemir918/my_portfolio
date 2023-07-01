@@ -27,7 +27,9 @@ class HomeNavigationBarItem extends StatelessWidget {
               BaseController.navigationController.changePage(page.index),
           style: IconButton.styleFrom(
             backgroundColor: Colors.black45,
-            hoverColor: kPrimaryColor,
+            hoverColor: BaseController.themeController.isDark.value
+                ? kDarkPrimaryColor
+                : kLightPrimaryColor,
           ),
           child: Text(
             page.title,

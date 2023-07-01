@@ -27,7 +27,7 @@ class ResumeListCard extends StatelessWidget {
         margin: const EdgeInsets.symmetric(vertical: kDefaultPadding),
         padding: const EdgeInsets.all(kDefaultPadding * 2),
         decoration: const BoxDecoration(
-          border: Border(left: BorderSide(width: 1, color: kPrimaryColor)),
+          border: Border(left: BorderSide(width: 1, color: kLightPrimaryColor)),
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,

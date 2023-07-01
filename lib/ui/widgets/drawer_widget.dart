@@ -13,7 +13,7 @@ class DrawerWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Drawer(
-        backgroundColor: kPrimaryColor,
+        backgroundColor: kLightPrimaryColor,
         child: Padding(
           padding: const EdgeInsets.all(kDefaultPadding * 2),
           child: Column(

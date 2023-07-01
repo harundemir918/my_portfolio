@@ -33,7 +33,9 @@ class ResponsiveAppBarActionsItem extends StatelessWidget {
                       color:
                           BaseController.navigationController.pageIndex.value ==
                                   index
-                              ? kPrimaryColor
+                              ? BaseController.themeController.isDark.value
+                                  ? kDarkPrimaryColor
+                                  : kLightPrimaryColor
                               : null,
                       fontWeight: FontWeight.w400,
                     ),

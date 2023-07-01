@@ -6,6 +6,8 @@ Date: 29.06.2023
 import 'package:flutter/material.dart';
 import 'package:webview_flutter_platform_interface/webview_flutter_platform_interface.dart';
 
+import '../../../../core/base/base_controller.dart';
+
 class NavigationBackground extends StatefulWidget {
   const NavigationBackground({super.key});
 
@@ -18,8 +20,7 @@ class _NavigationBackgroundState extends State<NavigationBackground> {
     const PlatformWebViewControllerCreationParams(),
   )..loadRequest(
       LoadRequestParams(
-        uri: Uri.parse(
-            'https://harundemir.org/assets/assets/html/background.html'),
+        uri: Uri.parse(BaseController.themeController.backgroundImage.value),
       ),
     );
 

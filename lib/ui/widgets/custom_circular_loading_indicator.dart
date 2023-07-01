@@ -13,7 +13,7 @@ class CustomCircularProgressIndicator extends StatelessWidget {
   @override
   Widget build(BuildContext context) => const Center(
         child: CircularProgressIndicator(
-          valueColor: AlwaysStoppedAnimation<Color>(kPrimaryColor),
+          valueColor: AlwaysStoppedAnimation<Color>(kLightPrimaryColor),
         ),
       );
 }

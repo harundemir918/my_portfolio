@@ -13,7 +13,8 @@ import '../models/page_model.dart';
 
 const String appName = "Harun Demir";
 
-const Color kPrimaryColor = Color(0xFFEFA4A0);
+const Color kLightPrimaryColor = Color(0xFFEFA4A0);
+const Color kDarkPrimaryColor = Color(0xFF8DB0D5);
 const Color kWhiteColor = Colors.white;
 const Color kBlackColor = Colors.black;
 const Color kShadowColor = Colors.black12;
@@ -29,6 +30,11 @@ const double desktopMinWidth = 992;
 
 const double kDefaultPadding = 10;
 const double kDefaultIconSize = 48;
+
+const String lightThemeBackground =
+    "https://harundemir.org/assets/assets/html/background_light.html";
+const String darkThemeBackground =
+    "https://harundemir.org/assets/assets/html/background_dark.html";
 
 List<PageModel> pageList = [
   PageModel(

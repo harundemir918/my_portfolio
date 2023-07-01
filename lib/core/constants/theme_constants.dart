@@ -12,7 +12,7 @@ import 'constants.dart';
 final lightTheme = ThemeData(
   fontFamily: GoogleFonts.poppins().fontFamily,
   colorScheme: ColorScheme.fromSeed(
-    seedColor: kPrimaryColor,
+    seedColor: kLightPrimaryColor,
     brightness: Brightness.light,
   ),
   useMaterial3: true,
@@ -27,7 +27,7 @@ final lightTheme = ThemeData(
 final darkTheme = ThemeData(
   fontFamily: GoogleFonts.poppins().fontFamily,
   colorScheme: ColorScheme.fromSeed(
-    seedColor: kPrimaryColor,
+    seedColor: kLightPrimaryColor,
     brightness: Brightness.dark,
   ),
   useMaterial3: true,

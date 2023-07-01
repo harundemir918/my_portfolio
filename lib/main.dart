@@ -6,10 +6,12 @@ import 'package:url_strategy/url_strategy.dart';
 import 'package:webview_flutter_platform_interface/webview_flutter_platform_interface.dart';
 import 'package:webview_flutter_web/webview_flutter_web.dart';
 
+import 'core/base/base_controller.dart';
 import 'core/constants/constants.dart';
 import 'core/constants/theme_constants.dart';
 import 'core/controllers/color/color_controller.dart';
 import 'core/controllers/navigation/navigation_controller.dart';
+import 'core/controllers/theme/theme_controller.dart';
 import 'ui/views/navigation/navigation_view.dart' deferred as navigation;
 
 void main() {
@@ -18,7 +20,8 @@ void main() {
   WidgetsFlutterBinding.ensureInitialized();
   Get
     ..put(NavigationController())
-    ..put(ColorController());
+    ..put(ColorController())
+    ..put(ThemeController());
   runApp(const MyApp());
 }
 
@@ -76,7 +79,7 @@ class _CustomMaterialAppState extends State<CustomMaterialApp> {
               debugShowCheckedModeBanner: false,
               theme: lightTheme,
               darkTheme: darkTheme,
-              themeMode: ThemeMode.light,
+              themeMode: BaseController.themeController.theme.value,
               home: navigation.NavigationView(),
             );
           }

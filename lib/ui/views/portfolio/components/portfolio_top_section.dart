@@ -20,7 +20,7 @@ class PortfolioTopSection extends StatelessWidget {
           vertical: kDefaultPadding * 4,
         ),
         decoration: const BoxDecoration(
-          color: kPrimaryColor,
+          color: kLightPrimaryColor,
           borderRadius: BorderRadius.vertical(
             top: Radius.circular(kDefaultPadding),
           ),

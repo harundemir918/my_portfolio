@@ -6,6 +6,7 @@ Date: 28.06.2023
 import 'package:flutter/material.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
+import '../../../../core/base/base_controller.dart';
 import '../../../../core/constants/constants.dart';
 
 class HomeDescription extends StatelessWidget {
@@ -20,14 +21,16 @@ class HomeDescription extends StatelessWidget {
           text: TextSpan(
             text: "I'm a passionate",
             style: Theme.of(context).textTheme.headlineMedium,
-            children: const [
+            children: [
               TextSpan(
                 text: " Flutter developer ",
                 style: TextStyle(
-                  color: kPrimaryColor,
+                  color: BaseController.themeController.isDark.value
+                      ? kDarkPrimaryColor
+                      : kLightPrimaryColor,
                 ),
               ),
-              TextSpan(text: "from Turkiye"),
+              const TextSpan(text: "from Turkiye"),
             ],
           ),
           textAlign: ResponsiveBreakpoints.of(context).isDesktop
