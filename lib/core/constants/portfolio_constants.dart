@@ -25,7 +25,11 @@ List<PortfolioModel> portfolioList = [
     type: PortfolioType.own,
     title: "Deutsch Lesen",
     description:
-        "Deutsch Lesen is an app that contains German texts for beginner and intermediate language learners.",
+        "Deutsch Lesen is a language learning application designed for beginners and intermediate German learners. This app offers a wide range of German texts to enhance your German reading skills and assist you in learning German online. The app interface is user-friendly and clear, with German language levels listed on the initial screen, allowing you to select an appropriate level for your online language education."
+        "\n\nWith this app, reading German becomes easier; you can choose the stories you want to read, translate them, listen to them, and start learning German right away. Reading German texts online can improve your German knowledge and take you to higher levels in your online German learning journey."
+        "\n\nThe best part of this app is that you don't need to purchase any packages to use it. If you find the app useful, you can support us by giving it a 5-star rating. Additionally, you can always send your questions or ideas to our email address."
+        "\n\nStart your German reading and online language education journey today with Deutsch Lesen!"
+        "\n\nEnjoy reading and learning!",
     url:
         "https://play.google.com/store/apps/details?id=org.harundemir.deutschlesen",
     mediaUrls: [
@@ -43,7 +47,11 @@ List<PortfolioModel> portfolioList = [
     type: PortfolioType.own,
     title: "English Reading",
     description:
-        "English Reading is an app that contains English texts for beginner and intermediate language learners.",
+        "English Reading is an app that contains English texts for beginner and intermediate language learners."
+        "\n\nThe application is very simple to use. English language levels are listed on the first screen and you can choose any of these levels. Then you can choose the stories you want to read and read them. Reading English stories can make it easier for you to learn English. In this way, you can improve your English knowledge and go to higher levels."
+        "\n\nThe application is completely free. You do not need to buy any packages to use it."
+        "\n\nIf you like our application, you can support us by giving 5 stars. You can send your questions or ideas to our e-mail address."
+        "\n\nHappy reading and learning!",
     url:
         "https://play.google.com/store/apps/details?id=org.harundemir.englishreading",
     mediaUrls: [

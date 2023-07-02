@@ -5,6 +5,7 @@ Date: 27.06.2023
 
 import 'package:flutter/material.dart';
 
+import '../../../../core/base/base_controller.dart';
 import '../../../../core/constants/constants.dart';
 import '../../../../core/models/portfolio_model.dart';
 import '../../../../core/utils/size_utils.dart';
@@ -18,12 +19,12 @@ class PortfolioProjectListCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) => InkWell(
         onTap: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => PortfolioDetailView(
-                portfolioModel: portfolioModel,
-              ),
+          BaseController.portfolioController
+              .getMediaUrls(portfolioModel.mediaUrls);
+          showDialog(
+            context: context,
+            builder: (context) => PortfolioDetailView(
+              portfolioModel: portfolioModel,
             ),
           );
         },
@@ -44,11 +45,14 @@ class PortfolioProjectListCard extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(
-                      portfolioModel.title,
-                      style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                            color: kWhiteColor,
-                          ),
+                    Expanded(
+                      child: Text(
+                        portfolioModel.title,
+                        style:
+                            Theme.of(context).textTheme.titleMedium?.copyWith(
+                                  color: kWhiteColor,
+                                ),
+                      ),
                     ),
                     const Icon(Icons.chevron_right_rounded, color: kWhiteColor),
                   ],
