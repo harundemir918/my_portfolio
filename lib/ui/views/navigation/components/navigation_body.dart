@@ -18,14 +18,14 @@ class NavigationBody extends StatelessWidget {
   const NavigationBody({super.key});
 
   @override
-  Widget build(BuildContext context) => Stack(
-        alignment: BaseController.navigationController.pageIndex.value == 0
-            ? Alignment.center
-            : Alignment.topCenter,
-        children: [
-          const NavigationBackground(),
-          Obx(
-            () => PointerInterceptor(
+  Widget build(BuildContext context) => Obx(
+        () => Stack(
+          alignment: BaseController.navigationController.pageIndex.value == 0
+              ? Alignment.center
+              : Alignment.topCenter,
+          children: [
+            const NavigationBackground(),
+            PointerInterceptor(
               child: SizedBox(
                 width: SizeUtils.getWidth(context),
                 height: SizeUtils.getHeight(context),
@@ -34,9 +34,12 @@ class NavigationBody extends StatelessWidget {
                     .page,
               ),
             ),
-          ),
-          if (ResponsiveBreakpoints.of(context).isDesktop)
-            NavigationThemeSwitcher(),
-        ],
+            if (ResponsiveBreakpoints.of(context).isDesktop &&
+                BaseController.navigationController.pageIndex.value == 0)
+              const NavigationThemeSwitcher()
+            else
+              const SizedBox.shrink(),
+          ],
+        ),
       );
 }

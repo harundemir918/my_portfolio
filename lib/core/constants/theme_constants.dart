@@ -27,7 +27,7 @@ final lightTheme = ThemeData(
 final darkTheme = ThemeData(
   fontFamily: GoogleFonts.poppins().fontFamily,
   colorScheme: ColorScheme.fromSeed(
-    seedColor: kLightPrimaryColor,
+    seedColor: kDarkPrimaryColor,
     brightness: Brightness.dark,
   ),
   useMaterial3: true,

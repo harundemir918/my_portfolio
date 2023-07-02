@@ -8,8 +8,8 @@ import 'package:get/get.dart';
 
 import '../../base/base_controller.dart';
 import '../../constants/constants.dart';
-import '../theme_switch.dart';
 import 'responsive_app_bar_drawer_button.dart';
+import 'theme_switcher/theme_switcher.dart';
 
 class ResponsiveMobileAppBar extends StatelessWidget {
   const ResponsiveMobileAppBar({super.key});
@@ -21,7 +21,7 @@ class ResponsiveMobileAppBar extends StatelessWidget {
               ? const Text(appName)
               : null,
           actions: const [
-            ThemeSwitch(),
+            ThemeSwitcher(),
             ResponsiveAppBarDrawerButton(),
           ],
         ),

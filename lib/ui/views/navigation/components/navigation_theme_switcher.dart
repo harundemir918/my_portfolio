@@ -6,7 +6,7 @@ Date: 2.07.2023
 import 'package:flutter/material.dart';
 
 import '../../../../core/constants/constants.dart';
-import '../../../../core/widgets/theme_switch.dart';
+import '../../../../core/widgets/responsive_app_bar/theme_switcher/theme_switcher.dart';
 
 class NavigationThemeSwitcher extends StatelessWidget {
   const NavigationThemeSwitcher({
@@ -22,7 +22,7 @@ class NavigationThemeSwitcher extends StatelessWidget {
           decoration: BoxDecoration(
             color: kBlackColor.withOpacity(0.8),
           ),
-          child: const ThemeSwitch(),
+          child: const ThemeSwitcher(),
         ),
       );
 }
