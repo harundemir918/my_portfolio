@@ -37,22 +37,26 @@ class _PortfolioProjectListState extends State<PortfolioProjectList> {
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.done) {
             return Obx(
-              () => GridView(
-                shrinkWrap: true,
-                padding: EdgeInsets.zero,
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  childAspectRatio: 3 / 2,
-                  crossAxisCount: _getGridViewCrossAxisCount(),
-                  mainAxisSpacing: kDefaultPadding / 2,
-                  crossAxisSpacing: kDefaultPadding / 2,
+              () => Padding(
+                padding:
+                    const EdgeInsets.symmetric(vertical: kDefaultPadding * 2),
+                child: GridView(
+                  shrinkWrap: true,
+                  padding: EdgeInsets.zero,
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    childAspectRatio: 4 / 2,
+                    crossAxisCount: _getGridViewCrossAxisCount(),
+                    mainAxisSpacing: kDefaultPadding / 2,
+                    crossAxisSpacing: kDefaultPadding / 2,
+                  ),
+                  children: BaseController.portfolioController.portfolios
+                      .map(
+                        (portfolio) => PortfolioProjectListCard(
+                          portfolioModel: portfolio,
+                        ),
+                      )
+                      .toList(),
                 ),
-                children: BaseController.portfolioController.portfolios
-                    .map(
-                      (portfolio) => PortfolioProjectListCard(
-                        portfolioModel: portfolio,
-                      ),
-                    )
-                    .toList(),
               ),
             );
           }
