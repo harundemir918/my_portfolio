@@ -16,7 +16,7 @@ class PortfolioDetailBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => SizedBox(
-        width: SizeUtils.getDynamicWidth(context, 0.8),
+        width: SizeUtils.getWidth(context),
         height: SizeUtils.getDynamicHeight(context, 0.8),
         child: PortfolioDetailProjectSection(portfolioModel: portfolioModel),
       );

@@ -15,12 +15,10 @@ class PortfolioDetailProjectInfo extends StatelessWidget {
   const PortfolioDetailProjectInfo({required this.portfolioModel, super.key});
 
   @override
-  Widget build(BuildContext context) => SingleChildScrollView(
-        child: Column(
-          children: [
-            PortfolioDetailDescription(portfolioModel: portfolioModel),
-            PortfolioDetailTechStack(techStack: portfolioModel.techStack),
-          ],
-        ),
+  Widget build(BuildContext context) => Column(
+        children: [
+          PortfolioDetailDescription(portfolioModel: portfolioModel),
+          PortfolioDetailTechStack(techStack: portfolioModel.techStack),
+        ],
       );
 }

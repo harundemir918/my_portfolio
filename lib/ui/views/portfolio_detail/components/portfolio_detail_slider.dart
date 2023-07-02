@@ -6,6 +6,7 @@ Date: 2.07.2023
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:responsive_framework/responsive_breakpoints.dart';
 
 import '../../../../core/base/base_controller.dart';
 import '../../../../core/constants/constants.dart';
@@ -17,22 +18,28 @@ class PortfolioDetailSlider extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => SizedBox(
-        height: SizeUtils.getDynamicHeight(context, 0.8),
+        height: SizeUtils.getDynamicHeight(
+          context,
+          ResponsiveBreakpoints.of(context).isDesktop ? 0.6 : 0.4,
+        ),
         child: Column(
           children: [
-            CarouselSlider(
-              items: BaseController.portfolioController.portfolioMediaUrls
-                  .map((media) => PortfolioDetailSliderCard(image: media))
-                  .toList(),
-              carouselController:
-                  BaseController.portfolioController.carouselController,
-              options: CarouselOptions(
-                autoPlay: true,
-                enlargeCenterPage: true,
-                enableInfiniteScroll: false,
-                aspectRatio: 3.0,
-                onPageChanged: (index, reason) =>
-                    BaseController.portfolioController.changeSliderPage(index),
+            Expanded(
+              child: CarouselSlider(
+                items: BaseController.portfolioController.portfolioMediaUrls
+                    .map((media) => PortfolioDetailSliderCard(image: media))
+                    .toList(),
+                carouselController:
+                    BaseController.portfolioController.carouselController,
+                options: CarouselOptions(
+                  autoPlay: true,
+                  enlargeCenterPage: true,
+                  enableInfiniteScroll: false,
+                  aspectRatio: 3 / 2.5,
+                  onPageChanged: (index, reason) => BaseController
+                      .portfolioController
+                      .changeSliderPage(index),
+                ),
               ),
             ),
             Obx(

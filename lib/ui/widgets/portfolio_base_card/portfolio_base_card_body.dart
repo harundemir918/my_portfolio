@@ -5,6 +5,7 @@ Date: 28.06.2023
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:responsive_framework/responsive_framework.dart';
 
 import '../../../core/base/base_controller.dart';
 import '../../../core/constants/constants.dart';
@@ -27,8 +28,10 @@ class PortfolioBaseCardBody extends StatelessWidget {
           duration: const Duration(seconds: 1),
           curve: Curves.linear,
           margin: EdgeInsets.symmetric(
-            horizontal: SizeUtils.getDynamicWidth(context, 0.15),
-            vertical: kToolbarHeight * 1.5,
+            horizontal: ResponsiveBreakpoints.of(context).isDesktop
+                ? SizeUtils.getDynamicWidth(context, 0.1)
+                : kDefaultPadding,
+            vertical: kToolbarHeight * 1.25,
           ),
           decoration: BoxDecoration(
             color: Theme.of(context).scaffoldBackgroundColor.withOpacity(0.8),
