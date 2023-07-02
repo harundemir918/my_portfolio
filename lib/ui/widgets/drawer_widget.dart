@@ -13,7 +13,9 @@ class DrawerWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Drawer(
-        backgroundColor: kLightPrimaryColor,
+        backgroundColor: BaseController.themeController.isDark.value
+            ? kDarkPrimaryColor
+            : kLightPrimaryColor,
         child: Padding(
           padding: const EdgeInsets.all(kDefaultPadding * 2),
           child: Column(

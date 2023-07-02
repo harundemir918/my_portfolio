@@ -16,16 +16,21 @@ class NavigationBackground extends StatefulWidget {
 }
 
 class _NavigationBackgroundState extends State<NavigationBackground> {
-  final PlatformWebViewController _controller = PlatformWebViewController(
-    const PlatformWebViewControllerCreationParams(),
-  )..loadRequest(
-      LoadRequestParams(
-        uri: Uri.parse(BaseController.themeController.backgroundImage.value),
-      ),
-    );
+  @override
+  void initState() {
+    BaseController.backgroundController.getBackgroundImage();
+    super.initState();
+  }
 
   @override
-  Widget build(BuildContext context) => PlatformWebViewWidget(
-        PlatformWebViewWidgetCreationParams(controller: _controller),
-      ).build(context);
+  Widget build(BuildContext context) => AnimatedContainer(
+        duration: const Duration(seconds: 1),
+        curve: Curves.linear,
+        child: PlatformWebViewWidget(
+          PlatformWebViewWidgetCreationParams(
+            controller:
+                BaseController.backgroundController.platformWebViewController,
+          ),
+        ).build(context),
+      );
 }

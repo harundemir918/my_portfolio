@@ -9,6 +9,7 @@ import 'package:webview_flutter_web/webview_flutter_web.dart';
 import 'core/base/base_controller.dart';
 import 'core/constants/constants.dart';
 import 'core/constants/theme_constants.dart';
+import 'core/controllers/background/background_controller.dart';
 import 'core/controllers/color/color_controller.dart';
 import 'core/controllers/navigation/navigation_controller.dart';
 import 'core/controllers/theme/theme_controller.dart';
@@ -21,7 +22,8 @@ void main() {
   Get
     ..put(NavigationController())
     ..put(ColorController())
-    ..put(ThemeController());
+    ..put(ThemeController())
+    ..put(BackgroundController());
   runApp(const MyApp());
 }
 
