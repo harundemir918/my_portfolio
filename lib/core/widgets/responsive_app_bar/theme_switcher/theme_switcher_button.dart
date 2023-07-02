@@ -4,6 +4,7 @@ Date: 2.07.2023
 */
 
 import 'package:flutter/material.dart';
+import 'package:responsive_framework/responsive_breakpoints.dart';
 
 import '../../../base/base_controller.dart';
 import '../../../constants/constants.dart';
@@ -28,7 +29,8 @@ class ThemeSwitcherButton extends StatelessWidget {
           radius: kDefaultPadding * 2,
           child: Icon(
             icon,
-            color: BaseController.navigationController.pageIndex.value == 0
+            color: BaseController.navigationController.pageIndex.value == 0 &&
+                    ResponsiveBreakpoints.of(context).isDesktop
                 ? kWhiteColor
                 : iconColor,
           ),
