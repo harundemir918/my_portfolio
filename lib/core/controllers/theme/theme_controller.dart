@@ -7,8 +7,10 @@ class ThemeController extends GetxController {
   Rx<ThemeMode> theme = ThemeMode.dark.obs;
   RxBool isDark = false.obs;
 
-  ThemeController() {
+  @override
+  void onInit() {
     getTheme();
+    super.onInit();
   }
 
   void getTheme() {

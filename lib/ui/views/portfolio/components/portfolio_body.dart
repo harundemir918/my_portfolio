@@ -6,7 +6,9 @@ Date: 27.06.2023
 import 'package:flutter/material.dart';
 
 import '../../../../core/constants/constants.dart';
+import '../../../../core/constants/portfolio_constants.dart';
 import 'portfolio_project_list.dart';
+import 'portfolio_type_button.dart';
 
 class PortfolioBody extends StatelessWidget {
   const PortfolioBody({super.key});
@@ -19,6 +21,21 @@ class PortfolioBody extends StatelessWidget {
             bottom: Radius.circular(kDefaultPadding),
           ),
         ),
-        child: const PortfolioProjectList(),
+        child: Column(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: portfolioTypeList
+                  .map(
+                    (type) => PortfolioTypeButton(
+                      title: type["title"],
+                      type: type["type"],
+                    ),
+                  )
+                  .toList(),
+            ),
+            const PortfolioProjectList(),
+          ],
+        ),
       );
 }

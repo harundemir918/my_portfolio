@@ -3,7 +3,7 @@ Author: Harun Demir
 Date: 26.12.2022
 */
 
-enum PortfolioType { project, image, video }
+enum PortfolioType { all, own, freelance }
 
 class PortfolioModel {
   final PortfolioType type;

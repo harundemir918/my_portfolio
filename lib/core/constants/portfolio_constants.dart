@@ -5,9 +5,24 @@ Date: 25.12.2022
 
 import '../models/portfolio_model.dart';
 
+List<Map<String, dynamic>> portfolioTypeList = [
+  {
+    "title": "ALL",
+    "type": PortfolioType.all,
+  },
+  {
+    "title": "OWN",
+    "type": PortfolioType.own,
+  },
+  {
+    "title": "FREELANCE",
+    "type": PortfolioType.freelance,
+  },
+];
+
 List<PortfolioModel> portfolioList = [
   PortfolioModel(
-    type: PortfolioType.project,
+    type: PortfolioType.own,
     title: "Deutsch Lesen",
     description:
         "Deutsch Lesen is an app that contains German texts for beginner and intermediate language learners.",
@@ -25,7 +40,7 @@ List<PortfolioModel> portfolioList = [
     techStack: ["Flutter", "Dart", "Laravel"],
   ),
   PortfolioModel(
-    type: PortfolioType.project,
+    type: PortfolioType.own,
     title: "English Reading",
     description:
         "English Reading is an app that contains English texts for beginner and intermediate language learners.",
@@ -41,7 +56,7 @@ List<PortfolioModel> portfolioList = [
     techStack: ["Flutter", "Dart", "Laravel"],
   ),
   PortfolioModel(
-    type: PortfolioType.project,
+    type: PortfolioType.own,
     title: "Flag Explorer",
     description:
         "Embark on a fascinating journey to explore the world's flags with Flag Explorer! Test your knowledge and learn about flags from all around the globe in this captivating quiz game. With an extensive collection of over 200 flags representing 6 continents, this app offers an immersive experience for flag enthusiasts and curious minds alike."

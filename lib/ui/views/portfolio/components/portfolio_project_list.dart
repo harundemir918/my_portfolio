@@ -4,11 +4,12 @@ Date: 27.06.2023
 */
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:responsive_framework/responsive_framework.dart'
     deferred as responsive_framework;
 
+import '../../../../core/base/base_controller.dart';
 import '../../../../core/constants/constants.dart';
-import '../../../../core/constants/portfolio_constants.dart';
 import 'portfolio_project_list_card.dart';
 
 class PortfolioProjectList extends StatefulWidget {
@@ -35,22 +36,24 @@ class _PortfolioProjectListState extends State<PortfolioProjectList> {
         ]),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.done) {
-            return GridView(
-              shrinkWrap: true,
-              padding: EdgeInsets.zero,
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                childAspectRatio: 3 / 2,
-                crossAxisCount: _getGridViewCrossAxisCount(),
-                mainAxisSpacing: kDefaultPadding / 2,
-                crossAxisSpacing: kDefaultPadding / 2,
+            return Obx(
+              () => GridView(
+                shrinkWrap: true,
+                padding: EdgeInsets.zero,
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  childAspectRatio: 3 / 2,
+                  crossAxisCount: _getGridViewCrossAxisCount(),
+                  mainAxisSpacing: kDefaultPadding / 2,
+                  crossAxisSpacing: kDefaultPadding / 2,
+                ),
+                children: BaseController.portfolioController.portfolios
+                    .map(
+                      (portfolio) => PortfolioProjectListCard(
+                        portfolioModel: portfolio,
+                      ),
+                    )
+                    .toList(),
               ),
-              children: portfolioList
-                  .map(
-                    (portfolio) => PortfolioProjectListCard(
-                      portfolioModel: portfolio,
-                    ),
-                  )
-                  .toList(),
             );
           }
           return const SizedBox.shrink();

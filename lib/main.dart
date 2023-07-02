@@ -12,6 +12,7 @@ import 'core/constants/theme_constants.dart';
 import 'core/controllers/background/background_controller.dart';
 import 'core/controllers/color/color_controller.dart';
 import 'core/controllers/navigation/navigation_controller.dart';
+import 'core/controllers/portfolio/portfolio_controller.dart';
 import 'core/controllers/theme/theme_controller.dart';
 import 'ui/views/navigation/navigation_view.dart' deferred as navigation;
 
@@ -21,6 +22,7 @@ void main() {
   WidgetsFlutterBinding.ensureInitialized();
   Get
     ..put(NavigationController())
+    ..put(PortfolioController())
     ..put(ColorController())
     ..put(ThemeController())
     ..put(BackgroundController());
