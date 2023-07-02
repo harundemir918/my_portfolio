@@ -27,12 +27,14 @@ class ThemeSwitcherButton extends StatelessWidget {
         child: CircleAvatar(
           backgroundColor: backgroundColor,
           radius: kDefaultPadding * 2,
-          child: Icon(
-            icon,
-            color: BaseController.navigationController.pageIndex.value == 0 &&
-                    ResponsiveBreakpoints.of(context).isDesktop
-                ? kWhiteColor
-                : iconColor,
+          child: Center(
+            child: Icon(
+              icon,
+              color: BaseController.navigationController.pageIndex.value == 0 &&
+                      ResponsiveBreakpoints.of(context).isDesktop
+                  ? kWhiteColor
+                  : iconColor,
+            ),
           ),
         ),
       );
