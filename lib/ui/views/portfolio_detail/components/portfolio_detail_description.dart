@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/constants/constants.dart';
 import '../../../../core/models/portfolio_model.dart';
+import '../../../../core/utils/utils.dart';
 
 class PortfolioDetailDescription extends StatelessWidget {
   final PortfolioModel portfolioModel;
@@ -32,7 +33,12 @@ class PortfolioDetailDescription extends StatelessWidget {
                 const SizedBox(
                   width: kDefaultPadding,
                 ),
-                Flexible(child: Text(portfolioModel.url)),
+                Flexible(
+                  child: InkWell(
+                    onTap: () => Utils.navigateToUrl(portfolioModel.url),
+                    child: Text(portfolioModel.url),
+                  ),
+                ),
               ],
             ),
           ),

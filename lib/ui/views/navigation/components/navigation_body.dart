@@ -6,7 +6,7 @@ Date: 27.06.2023
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pointer_interceptor/pointer_interceptor.dart';
-import 'package:responsive_framework/responsive_breakpoints.dart';
+import 'package:responsive_framework/responsive_framework.dart';
 
 import '../../../../core/base/base_controller.dart';
 import '../../../../core/constants/constants.dart';
@@ -36,9 +36,8 @@ class NavigationBody extends StatelessWidget {
             ),
             if (ResponsiveBreakpoints.of(context).isDesktop &&
                 BaseController.navigationController.pageIndex.value == 0)
-              const NavigationThemeSwitcher()
-            else
-              const SizedBox.shrink(),
+              const NavigationThemeSwitcher(),
+            // const NavigationFooter(),
           ],
         ),
       );
