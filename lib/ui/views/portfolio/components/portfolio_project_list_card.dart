@@ -29,6 +29,7 @@ class PortfolioProjectListCard extends StatelessWidget {
           );
         },
         child: Stack(
+          alignment: Alignment.center,
           children: [
             SizedBox(
               child: Image.network(

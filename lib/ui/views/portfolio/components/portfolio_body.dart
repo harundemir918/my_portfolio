@@ -6,10 +6,8 @@ Date: 27.06.2023
 import 'package:flutter/material.dart';
 
 import '../../../../core/constants/constants.dart';
-import '../../../../core/constants/portfolio_constants.dart';
-import '../../../../core/utils/size_utils.dart';
 import 'portfolio_project_list.dart';
-import 'portfolio_type_button.dart';
+import 'portfolio_type_list.dart';
 
 class PortfolioBody extends StatelessWidget {
   const PortfolioBody({super.key});
@@ -22,25 +20,10 @@ class PortfolioBody extends StatelessWidget {
             bottom: Radius.circular(kDefaultPadding),
           ),
         ),
-        child: Column(
+        child: const Column(
           children: [
-            SingleChildScrollView(
-              child: SizedBox(
-                width: SizeUtils.getWidth(context),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: portfolioTypeList
-                      .map(
-                        (type) => PortfolioTypeButton(
-                          title: type["title"],
-                          type: type["type"],
-                        ),
-                      )
-                      .toList(),
-                ),
-              ),
-            ),
-            const PortfolioProjectList(),
+            PortfolioTypeList(),
+            PortfolioProjectList(),
           ],
         ),
       );

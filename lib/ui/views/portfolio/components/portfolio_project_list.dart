@@ -41,6 +41,7 @@ class _PortfolioProjectListState extends State<PortfolioProjectList> {
                 padding:
                     const EdgeInsets.symmetric(vertical: kDefaultPadding * 2),
                 child: GridView(
+                  physics: const NeverScrollableScrollPhysics(),
                   shrinkWrap: true,
                   padding: EdgeInsets.zero,
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(

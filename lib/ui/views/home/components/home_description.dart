@@ -20,7 +20,7 @@ class HomeDescription extends StatelessWidget {
         child: RichText(
           text: TextSpan(
             text: "I'm a passionate",
-            style: Theme.of(context).textTheme.headlineMedium,
+            style: Theme.of(context).textTheme.headlineSmall,
             children: [
               TextSpan(
                 text: " Flutter developer ",

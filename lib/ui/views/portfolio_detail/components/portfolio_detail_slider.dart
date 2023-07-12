@@ -35,7 +35,8 @@ class PortfolioDetailSlider extends StatelessWidget {
                   autoPlay: true,
                   enlargeCenterPage: true,
                   enableInfiniteScroll: false,
-                  aspectRatio: 3 / 2.5,
+                  aspectRatio:
+                      ResponsiveBreakpoints.of(context).isDesktop ? 3 : 3 / 2.5,
                   onPageChanged: (index, reason) => BaseController
                       .portfolioController
                       .changeSliderPage(index),

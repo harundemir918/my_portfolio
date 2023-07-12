@@ -15,8 +15,7 @@ class HomeTitle extends StatelessWidget {
         padding: const EdgeInsets.all(kDefaultPadding),
         child: Text(
           appName,
-          style: Theme.of(context).textTheme.displayLarge?.copyWith(
-                // color: kWhiteColor,
+          style: Theme.of(context).textTheme.displayMedium?.copyWith(
                 fontWeight: FontWeight.bold,
               ),
           maxLines: 2,

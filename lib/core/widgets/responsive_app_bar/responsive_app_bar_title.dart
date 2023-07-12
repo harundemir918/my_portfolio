@@ -15,7 +15,7 @@ class ResponsiveAppBarTitle extends StatelessWidget {
         padding: const EdgeInsets.all(kDefaultPadding),
         child: Text(
           appName,
-          style: Theme.of(context).textTheme.headlineLarge?.copyWith(
+          style: Theme.of(context).textTheme.headlineMedium?.copyWith(
                 fontWeight: FontWeight.bold,
               ),
           maxLines: 2,
