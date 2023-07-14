@@ -18,9 +18,10 @@ class NavigationThemeSwitcher extends StatelessWidget {
         top: 0,
         right: 0,
         child: Container(
+          height: kToolbarHeight,
           padding: const EdgeInsets.all(kDefaultPadding),
           decoration: BoxDecoration(
-            color: kBlackColor.withOpacity(0.8),
+            color: kDarkBackgroundColor.withOpacity(0.8),
           ),
           child: const ThemeSwitcher(),
         ),

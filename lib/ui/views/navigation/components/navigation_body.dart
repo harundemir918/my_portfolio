@@ -11,6 +11,7 @@ import 'package:responsive_framework/responsive_framework.dart';
 import '../../../../core/base/base_controller.dart';
 import '../../../../core/constants/constants.dart';
 import '../../../../core/utils/size_utils.dart';
+import 'navigation_app_bar.dart';
 import 'navigation_background.dart';
 import 'navigation_theme_switcher.dart';
 
@@ -29,9 +30,16 @@ class NavigationBody extends StatelessWidget {
               child: SizedBox(
                 width: SizeUtils.getWidth(context),
                 height: SizeUtils.getHeight(context),
-                child: pageList[
-                        BaseController.navigationController.pageIndex.value]
-                    .page,
+                child: Column(
+                  children: [
+                    const NavigationAppBar(),
+                    Expanded(
+                      child: pageList[BaseController
+                              .navigationController.pageIndex.value]
+                          .page,
+                    ),
+                  ],
+                ),
               ),
             ),
             if (ResponsiveBreakpoints.of(context).isDesktop &&

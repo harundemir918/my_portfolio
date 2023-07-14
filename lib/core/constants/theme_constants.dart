@@ -17,8 +17,9 @@ final lightTheme = ThemeData(
   ),
   useMaterial3: true,
   brightness: Brightness.light,
-  appBarTheme: const AppBarTheme(
-    backgroundColor: kLightBackgroundColor,
+  appBarTheme: AppBarTheme(
+    backgroundColor: kLightBackgroundColor.withOpacity(0.8),
+    foregroundColor: kLightBackgroundColor.withOpacity(0.8),
     surfaceTintColor: Colors.transparent,
     systemOverlayStyle: SystemUiOverlayStyle.dark,
   ),
@@ -32,9 +33,10 @@ final darkTheme = ThemeData(
   ),
   useMaterial3: true,
   brightness: Brightness.dark,
-  appBarTheme: const AppBarTheme(
-    actionsIconTheme: IconThemeData(color: kWhiteColor),
-    backgroundColor: kDarkBackgroundColor,
+  appBarTheme: AppBarTheme(
+    actionsIconTheme: const IconThemeData(color: kWhiteColor),
+    backgroundColor: kDarkBackgroundColor.withOpacity(0.6),
+    foregroundColor: kDarkBackgroundColor.withOpacity(0.6),
     surfaceTintColor: Colors.transparent,
     systemOverlayStyle: SystemUiOverlayStyle.light,
   ),
