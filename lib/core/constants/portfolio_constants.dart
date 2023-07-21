@@ -91,6 +91,34 @@ List<PortfolioModel> portfolioList = [
     techStack: ["Flutter", "Dart"],
   ),
   PortfolioModel(
+    type: PortfolioType.own,
+    title: "UnitSphere",
+    description:
+        "Welcome to UnitSphere, a professional unit converter application designed for all your conversion needs. Whether it's Length, Weight, Time, Temperature, Volume, Area, Data, Velocity, Fuel, Pressure, Power or Energy, UnitSphere is for you."
+        "\n\nMain Features:"
+        "\nVarious Unit Categories: UnitSphere has 12 unit categories that are most used in daily life: 'Length, Weight, Time, Temperature, Volume, Area, Data, Velocity, Fuel, Pressure, Power, Energy'."
+        "\nPrecise Unit Conversion: You can make accurate and reliable conversions for professional use."
+        "\nMulti-Language Support: The application supports 3 languages, you can use the application in your preferred language."
+        "\nUser-Friendly Interface: The app is simply designed for smooth navigation and fast conversions."
+        "\nFast and Efficient: Get instant results with a fast and efficient conversion process."
+        "\n\nDiscover Comfort:"
+        "\n\nUnitSphere offers you a comprehensive unit converter calculator that includes length, weight, temperature and many other units. Whether you're a professional user or a casual user, this app is your go-to tool for fast and accurate conversions."
+        "\n\nDiscover the simplicity of UnitSphere and download the app for seamless conversions in your preferred language. Simplify your work and daily life with a powerful unit converter app."
+        "\n\nGet UnitSphere now and enjoy hassle-free conversions for all your professional needs!",
+    url:
+        "https://play.google.com/store/apps/details?id=org.harundemir.unitsphere",
+    mediaUrls: [
+      "https://play-lh.googleusercontent.com/W3iqD3MLYCl6g48mEakvMgkfQYMgDI-ubdpuhgI_2emr1AOcCUejOK8tLDrLjvkc96M=w1024-h500-rw",
+      "https://play-lh.googleusercontent.com/213OgNEtorbjjwpYs6W7PBCwyu_lGvlsQUefM6axn9U36ioK7uK7akT3pUF9ifCmbinw=w1080-h1920-rw",
+      "https://play-lh.googleusercontent.com/I-2UI6SgUNF6O1ZfjclKTRNDPqtRXuTMsUef9IIxAaIs7QGTEBIIfZLMxI4UlGXxV7Y=w1080-h1920-rw",
+      "https://play-lh.googleusercontent.com/jowY_14FGUaeCFlRmTO4xhLOXXvru-lzng3QxMN8Nmq3JzWCtfcE3BdC2SbjHdxSt_Q=w1080-h1920-rw",
+      "https://play-lh.googleusercontent.com/lehixfzh5vM3yleEkN2r9FPAc8X8ll4erUCrlSc_bz4eSYgxMGKFCf647I07vePG2uA=w1080-h1920-rw",
+      "https://play-lh.googleusercontent.com/MXwGcAk5coeXh7FqrTDGQzdd7gJ9rK-EJWnCCjcUiU9YzqtXrf8Dmzb1tv-VkQRLO8g=w1080-h1920-rw",
+    ],
+    date: "July 20, 2023",
+    techStack: ["Flutter", "Dart"],
+  ),
+  PortfolioModel(
     type: PortfolioType.freelance,
     title: "Xam Shoe Commerce App",
     description:
