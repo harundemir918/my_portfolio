@@ -1,10 +1,11 @@
 /*
 Author: Harun Demir
 Date: 26.12.2022
+Updated At: 21.09.2024
 */
 
 import 'package:flutter/material.dart';
-import 'package:responsive_framework/responsive_breakpoints.dart';
+import 'package:responsive_framework/responsive_framework.dart';
 
 import '../../../core/constants/constants.dart';
 import '../../../core/models/portfolio_model.dart';
@@ -16,8 +17,8 @@ class PortfolioDetailView extends StatelessWidget {
 
   const PortfolioDetailView({
     required this.portfolioModel,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) => Dialog(

@@ -4,8 +4,8 @@ import '../../core/constants/resume_constants.dart';
 
 class TypeWriterText extends StatefulWidget {
   const TypeWriterText({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   State<TypeWriterText> createState() => _TypeWriterTextState();

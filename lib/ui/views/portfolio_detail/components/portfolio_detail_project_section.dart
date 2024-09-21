@@ -1,11 +1,18 @@
 /*
 Author: Harun Demir
 Date: 2.07.2023
+Updated At: 21.09.2024
 */
 
 import 'package:flutter/material.dart';
 import 'package:responsive_framework/responsive_framework.dart'
-    deferred as responsive_framework;
+    deferred as responsive_framework
+    show
+        ResponsiveRowColumn,
+        ResponsiveRowColumnType,
+        ResponsiveRowColumnItem,
+        ResponsiveBreakpoints,
+        TABLET;
 
 import '../../../../core/constants/constants.dart';
 import '../../../../core/models/portfolio_model.dart';

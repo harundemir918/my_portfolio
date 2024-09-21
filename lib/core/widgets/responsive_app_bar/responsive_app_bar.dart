@@ -10,7 +10,7 @@ class ResponsiveAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 
-  const ResponsiveAppBar({Key? key}) : super(key: key);
+  const ResponsiveAppBar({super.key});
 
   @override
   Widget build(BuildContext context) =>

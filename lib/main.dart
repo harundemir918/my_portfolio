@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:responsive_framework/responsive_framework.dart'
-    deferred as responsive_framework;
+    deferred as responsive_framework
+    show MOBILE, PHONE, TABLET, DESKTOP, ResponsiveBreakpoints, Breakpoint;
 import 'package:url_strategy/url_strategy.dart';
 import 'package:webview_flutter_platform_interface/webview_flutter_platform_interface.dart';
 import 'package:webview_flutter_web/webview_flutter_web.dart';
@@ -37,7 +38,7 @@ class MyApp extends StatelessWidget {
 }
 
 class CustomMaterialApp extends StatefulWidget {
-  const CustomMaterialApp({Key? key}) : super(key: key);
+  const CustomMaterialApp({super.key});
 
   @override
   State<CustomMaterialApp> createState() => _CustomMaterialAppState();

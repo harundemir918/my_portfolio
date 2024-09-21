@@ -35,14 +35,12 @@ class ResponsiveDesktopAppBar extends StatelessWidget {
               const ResponsiveAppBarTitle(),
               Row(
                 children: [
-                  ...pageList
-                      .map(
-                        (item) => ResponsiveAppBarActionsItem(
-                          index: item.index,
-                          title: item.title,
-                        ),
-                      )
-                      .toList(),
+                  ...pageList.map(
+                    (item) => ResponsiveAppBarActionsItem(
+                      index: item.index,
+                      title: item.title,
+                    ),
+                  ),
                   const ThemeSwitcher(),
                 ],
               ),

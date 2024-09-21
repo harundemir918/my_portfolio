@@ -6,7 +6,7 @@ import '../../widgets/drawer_widget.dart';
 import 'components/navigation_body.dart';
 
 class NavigationView extends StatefulWidget {
-  const NavigationView({Key? key}) : super(key: key);
+  const NavigationView({super.key});
 
   @override
   State<NavigationView> createState() => _NavigationViewState();

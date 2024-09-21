@@ -8,7 +8,8 @@ class PortfolioController extends GetxController {
   Rx<PortfolioType> portfolioType = PortfolioType.all.obs;
   RxList<PortfolioModel> portfolios = RxList<PortfolioModel>();
   RxList<String> portfolioMediaUrls = RxList<String>();
-  final CarouselController carouselController = CarouselController();
+  final CarouselSliderController carouselController =
+      CarouselSliderController();
   RxInt sliderIndex = 0.obs;
 
   @override

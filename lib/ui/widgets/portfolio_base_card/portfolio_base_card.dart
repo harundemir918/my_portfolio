@@ -9,8 +9,8 @@ class PortfolioBaseCard extends StatefulWidget {
   const PortfolioBaseCard({
     required this.title,
     required this.cardBody,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   State<PortfolioBaseCard> createState() => _PortfolioBaseCardState();

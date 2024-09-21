@@ -5,7 +5,13 @@ Date: 27.06.2023
 
 import 'package:flutter/material.dart';
 import 'package:responsive_framework/responsive_framework.dart'
-    deferred as responsive_framework;
+    deferred as responsive_framework
+    show
+        ResponsiveRowColumn,
+        ResponsiveRowColumnType,
+        ResponsiveRowColumnItem,
+        ResponsiveBreakpoints,
+        TABLET;
 
 import '../../../../core/constants/constants.dart';
 import 'resume_info_education.dart';

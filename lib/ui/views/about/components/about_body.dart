@@ -1,11 +1,19 @@
 /*
 Author: Harun Demir
 Date: 27.06.2023
+Updated At: 21.09.2024
 */
 
 import 'package:flutter/material.dart';
 import 'package:responsive_framework/responsive_framework.dart'
-    deferred as responsive_framework;
+    deferred as responsive_framework
+    show
+        ResponsiveBreakpoints,
+        ResponsiveRowColumn,
+        ResponsiveRowColumnType,
+        ResponsiveRowColumnItem,
+        DESKTOP,
+        TABLET;
 
 import '../../../../core/constants/constants.dart';
 import '../../../../core/utils/size_utils.dart';

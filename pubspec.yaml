@@ -20,7 +20,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: '>=3.0.5 <4.0.0'
+  sdk: ^3.5.1
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -32,17 +32,17 @@ dependencies:
   flutter:
     sdk: flutter
 
-  carousel_slider: ^4.2.1
-  cupertino_icons: ^1.0.5
-  flutter_svg: ^2.0.7
-  get: ^4.6.5
+  carousel_slider: ^5.0.0
+  cupertino_icons: ^1.0.8
+  flutter_svg: ^2.0.10+1
+  get: ^4.6.6
   get_storage: ^2.1.1
-  google_fonts: ^5.1.0
-  pointer_interceptor: ^0.9.3+4
-  responsive_framework: ^1.1.0
-  url_launcher: ^6.1.12
-  url_strategy: ^0.2.0
-  webview_flutter_web: ^0.2.2+1
+  google_fonts: ^6.2.1
+  pointer_interceptor: ^0.10.1+2
+  responsive_framework: ^1.5.1
+  url_launcher: ^6.3.0
+  url_strategy: ^0.3.0
+  webview_flutter_web: ^0.2.3+2
 
 dev_dependencies:
   flutter_test:
@@ -55,7 +55,7 @@ dev_dependencies:
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
-  flutter_lints: ^2.0.2
+  flutter_lints: ^4.0.0
 
 flutter_launcher_icons:
   android: "launcher_icon"

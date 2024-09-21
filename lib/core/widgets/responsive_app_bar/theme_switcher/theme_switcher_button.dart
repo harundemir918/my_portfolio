@@ -1,10 +1,11 @@
 /*
 Author: Harun Demir
 Date: 2.07.2023
+Updated At: 21.09.2024
 */
 
 import 'package:flutter/material.dart';
-import 'package:responsive_framework/responsive_breakpoints.dart';
+import 'package:responsive_framework/responsive_framework.dart';
 
 import '../../../base/base_controller.dart';
 import '../../../constants/constants.dart';

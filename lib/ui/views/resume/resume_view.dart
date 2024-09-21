@@ -4,7 +4,7 @@ import '../../widgets/portfolio_base_card/portfolio_base_card.dart';
 import 'components/resume_body.dart';
 
 class ResumeView extends StatefulWidget {
-  const ResumeView({Key? key}) : super(key: key);
+  const ResumeView({super.key});
 
   @override
   State<ResumeView> createState() => _ResumeViewState();

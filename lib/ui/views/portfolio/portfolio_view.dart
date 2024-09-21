@@ -4,7 +4,7 @@ import '../../widgets/portfolio_base_card/portfolio_base_card.dart';
 import 'components/portfolio_body.dart';
 
 class PortfolioView extends StatefulWidget {
-  const PortfolioView({Key? key}) : super(key: key);
+  const PortfolioView({super.key});
 
   @override
   State<PortfolioView> createState() => _PortfolioViewState();

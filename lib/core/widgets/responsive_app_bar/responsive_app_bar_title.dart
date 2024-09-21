@@ -4,7 +4,7 @@ Date: 28.06.2023
 */
 
 import 'package:flutter/material.dart';
-import 'package:responsive_framework/responsive_breakpoints.dart';
+import 'package:responsive_framework/responsive_framework.dart';
 
 import '../../../../core/constants/constants.dart';
 
