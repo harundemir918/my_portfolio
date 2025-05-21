@@ -21,7 +21,7 @@
   <meta name="description" content="A new Flutter project.">
 
   <!-- iOS meta tags & icons -->
-  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <meta name="apple-mobile-web-app-title" content="my_portfolio">
   <link rel="apple-touch-icon" href="icons/Icon-192.png">
@@ -29,7 +29,7 @@
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="favicon.png"/>
 
-  <title>Harun Demir</title>
+  <title>my_portfolio</title>
   <link rel="manifest" href="manifest.json">
 
   <style>
@@ -59,38 +59,11 @@
       }
     }
   </style>
-  <script>
-    // The value below is injected by flutter build, do not touch.
-    var serviceWorkerVersion = null;
-  </script>
-  <!-- This script adds the flutter initialization JS code -->
-  <script src="flutter.js" defer></script>
 </head>
 <body>
   <div id="loading_indicator" class="container">
     <img class="indicator" src="icons/Icon-maskable-512.png" />
   </div>
-  <script>
-    window.addEventListener('load', function(ev) {
-      // Download main.dart.js
-      _flutter.loader.loadEntrypoint({
-        serviceWorker: {
-          serviceWorkerVersion: serviceWorkerVersion,
-        }
-      }).then(function(engineInitializer) {
-        return engineInitializer.initializeEngine();
-      }).then(function(appRunner) {
-        return appRunner.runApp();
-      });
-    });
-    window.onload = function () {
-      setTimeout(function () {
-        var loadingIndicator = document.getElementById("loading_indicator");
-        if (loadingIndicator) {
-          loadingIndicator.remove();
-        }
-      }, 10000);
-    };
-  </script>
+  <script src="flutter_bootstrap.js" async></script>
 </body>
 </html>
